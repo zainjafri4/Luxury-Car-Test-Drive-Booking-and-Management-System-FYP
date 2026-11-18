@@ -13,10 +13,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       'inline-flex items-center justify-center font-sans font-medium rounded-input transition-colors duration-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-soft disabled:opacity-50 disabled:pointer-events-none';
 
     const variants = {
-      primary: 'bg-gold text-on-gold hover:bg-gold-hover shadow-sm',
-      secondary: 'bg-transparent border border-gold text-gold hover:bg-surface-2',
-      ghost: 'bg-transparent text-text hover:bg-surface-2 hover:text-gold',
-      danger: 'bg-transparent border border-danger text-danger hover:bg-danger hover:text-text',
+      primary:
+        'bg-gradient-to-r from-[#d9b257] via-[#c9a24b] to-[#b38936] text-[#0b0b0c] font-semibold hover:from-[#e5c26b] hover:to-[#be933f] shadow-[0_2px_14px_rgba(201,162,75,0.25)] hover:shadow-[0_4px_22px_rgba(201,162,75,0.4)] active:scale-[0.99]',
+      secondary:
+        'bg-white/[0.02] border border-gold/50 text-gold hover:bg-gold/10 hover:border-gold shadow-sm backdrop-blur-sm',
+      ghost:
+        'bg-transparent text-text-muted hover:text-text hover:bg-white/[0.05]',
+      danger:
+        'bg-danger/10 border border-danger/40 text-red-300 hover:bg-danger/25 hover:border-danger hover:text-white shadow-sm',
     };
 
     const sizes = {

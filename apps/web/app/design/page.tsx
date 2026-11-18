@@ -39,7 +39,7 @@ export default function DesignReviewPage() {
     <div className="max-w-container mx-auto px-6 py-12 space-y-12">
       <div>
         <p className="eyebrow">Design System Verification</p>
-        <h1 className="text-4xl font-serif text-gold mt-1">Zain Reserve Component Catalog</h1>
+        <h1 className="text-4xl font-serif text-gold-gradient mt-1 tracking-tight">Zain Reserve Component Catalog</h1>
         <p className="text-text-muted mt-2">
           Dark, quiet, premium foundations (§9.5, §9.6). All tokens wired into CSS variables.
         </p>

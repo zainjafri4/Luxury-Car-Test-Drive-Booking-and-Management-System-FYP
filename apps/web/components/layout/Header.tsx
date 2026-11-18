@@ -5,10 +5,10 @@ import { Button } from '@/components/ui/Button';
 
 export const Header: React.FC = () => {
   return (
-    <header className="sticky top-0 z-40 w-full border-b border-border bg-bg/85 backdrop-blur-md transition-colors">
+    <header className="sticky top-0 z-40 w-full border-b border-white/[0.07] bg-[#0b0b0c]/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-colors">
       <div className="max-w-container mx-auto px-6 h-20 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-2">
-          <span className="font-serif text-2xl font-bold tracking-widest text-gold uppercase">
+          <span className="font-serif text-2xl font-bold tracking-widest text-gold-gradient uppercase">
             {brand.name}
           </span>
         </Link>
