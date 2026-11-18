@@ -10,9 +10,9 @@
 
 :root {
   /* Background */
-  --bg: #0b0b0c;
-  --surface: #141416;
-  --surface-2: #1c1c20;
+  --bg: #0c0c0f;
+  --surface: #161618;
+  --surface-2: #1e1e23;
 
   /* Borders */
   --border: #2a2a30;
@@ -66,10 +66,16 @@ html {
 body {
   background-color: var(--bg);
   background-image:
-    radial-gradient(ellipse 90% 60% at 50% -15%, rgba(201, 162, 75, 0.08), transparent 70%),
-    radial-gradient(ellipse 70% 50% at 90% 100%, rgba(25, 27, 36, 0.45), transparent 70%),
-    radial-gradient(ellipse 50% 30% at 10% 40%, rgba(20, 22, 28, 0.35), transparent 60%);
+    /* Warm gold bloom from top-center */
+    radial-gradient(ellipse 100% 55% at 50% -10%, rgba(201, 162, 75, 0.11), transparent 65%),
+    /* Warm amber right-bottom vignette */
+    radial-gradient(ellipse 60% 45% at 95% 100%, rgba(180, 120, 30, 0.07), transparent 70%),
+    /* Cool-dark left-mid depth */
+    radial-gradient(ellipse 55% 40% at 5% 50%, rgba(10, 12, 20, 0.5), transparent 65%),
+    /* Subtle noise grain overlay */
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
   background-attachment: fixed;
+  background-size: auto, auto, auto, 200px 200px;
   color: var(--text);
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 16px;
