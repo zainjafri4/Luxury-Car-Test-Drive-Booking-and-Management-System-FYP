@@ -1,8 +1,8 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 6 — API docs and hardening (Completed)
-- Last updated: 2026-11-18
+- Current phase: Phase 7 — Frontend: public + customer (In Progress)
+- Last updated: 2026-11-19
 - Overall: 7/10 phases complete
 
 ## Phase checklist
@@ -13,7 +13,7 @@
 - [x] Phase 4 — Time slots
 - [x] Phase 5 — Bookings, state machine, notifications
 - [x] Phase 6 — API docs and hardening
-- [ ] Phase 7 — Frontend: public + customer
+- [/] Phase 7 — Frontend: public + customer
 - [ ] Phase 8 — Frontend: admin portal
 - [ ] Phase 9 — QA, polish, docs, deployment readiness
 

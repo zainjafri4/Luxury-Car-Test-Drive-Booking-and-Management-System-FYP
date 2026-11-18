@@ -4,6 +4,8 @@ import './globals.css';
 import { brand } from '@/lib/brand';
 import { Header } from '@/components/layout/Header';
 import { Footer } from '@/components/layout/Footer';
+import { AuthProvider } from '@/lib/auth-context';
+import { Toaster } from 'sonner';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -34,9 +36,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="bg-bg text-text antialiased min-h-screen flex flex-col justify-between">
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+          <Toaster position="bottom-right" richColors theme="dark" />
+        </AuthProvider>
       </body>
     </html>
   );
