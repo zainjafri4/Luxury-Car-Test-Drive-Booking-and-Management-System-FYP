@@ -1,0 +1,223 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  CUSTOMER
+  STAFF
+}
+
+enum BookingStatus {
+  PENDING
+  APPROVED
+  REJECTED
+  CANCELLED
+  COMPLETED
+}
+
+enum SlotStatus {
+  ACTIVE
+  INACTIVE
+}
+
+enum FuelType {
+  PETROL
+  DIESEL
+  HYBRID
+  ELECTRIC
+}
+
+enum VehicleType {
+  SEDAN
+  SUV
+  COUPE
+  CONVERTIBLE
+  HATCHBACK
+  SPORTS
+  OTHER
+}
+
+enum NotificationType {
+  BOOKING_CREATED
+  BOOKING_APPROVED
+  BOOKING_REJECTED
+  BOOKING_CANCELLED
+  BOOKING_RESCHEDULED
+  BOOKING_COMPLETED
+}
+
+model User {
+  id                    String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  email                 String                 @unique
+  passwordHash          String
+  fullName              String
+  phone                 String?
+  role                  Role                   @default(CUSTOMER)
+  isActive              Boolean                @default(true)
+  lastLoginAt           DateTime?              @db.Timestamptz
+  createdAt             DateTime               @default(now()) @db.Timestamptz
+  updatedAt             DateTime               @updatedAt @db.Timestamptz
+
+  refreshTokens         RefreshToken[]
+  customerBookings      Booking[]              @relation("CustomerBookings")
+  decidedBookings       Booking[]              @relation("StaffDecidedBookings")
+  statusHistoryChanges  BookingStatusHistory[]
+  notifications         Notification[]
+
+  @@index([role])
+  @@index([isActive])
+}
+
+model RefreshToken {
+  id         String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId     String    @db.Uuid
+  tokenHash  String
+  expiresAt  DateTime  @db.Timestamptz
+  revokedAt  DateTime? @db.Timestamptz
+  userAgent  String?
+  createdAt  DateTime  @default(now()) @db.Timestamptz
+  updatedAt  DateTime  @updatedAt @db.Timestamptz
+
+  user       User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([tokenHash])
+}
+
+model Dealership {
+  id          String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  name        String
+  address     String
+  city        String
+  phone       String
+  email       String?
+  openingTime String
+  closingTime String
+  description String?
+  isActive    Boolean    @default(true)
+  createdAt   DateTime   @default(now()) @db.Timestamptz
+  updatedAt   DateTime   @updatedAt @db.Timestamptz
+
+  vehicles    Vehicle[]
+  timeSlots   TimeSlot[]
+
+  @@unique([name, city])
+  @@index([isActive])
+}
+
+model Vehicle {
+  id                 String      @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  dealershipId       String      @db.Uuid
+  manufacturer       String
+  model              String
+  year               Int
+  type               VehicleType
+  fuelType           FuelType
+  transmission       String
+  engine             String
+  powerHp            Int?
+  topSpeedKmh        Int?
+  acceleration0to100 Decimal?    @db.Decimal(4, 2)
+  seats              Int
+  color              String?
+  priceUsd           Decimal?    @db.Decimal(12, 2)
+  description        String
+  features           String[]
+  imageUrls          String[]
+  isAvailable        Boolean     @default(true)
+  isActive           Boolean     @default(true)
+  createdAt          DateTime    @default(now()) @db.Timestamptz
+  updatedAt          DateTime    @updatedAt @db.Timestamptz
+
+  dealership         Dealership  @relation(fields: [dealershipId], references: [id], onDelete: Restrict)
+  timeSlots          TimeSlot[]
+
+  @@index([dealershipId])
+  @@index([manufacturer, model])
+  @@index([type])
+  @@index([fuelType])
+  @@index([isActive, isAvailable])
+}
+
+model TimeSlot {
+  id           String     @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  vehicleId    String     @db.Uuid
+  dealershipId String     @db.Uuid
+  startsAt     DateTime   @db.Timestamptz
+  endsAt       DateTime   @db.Timestamptz
+  status       SlotStatus @default(ACTIVE)
+  createdAt    DateTime   @default(now()) @db.Timestamptz
+  updatedAt    DateTime   @updatedAt @db.Timestamptz
+
+  vehicle      Vehicle    @relation(fields: [vehicleId], references: [id], onDelete: Restrict)
+  dealership   Dealership @relation(fields: [dealershipId], references: [id], onDelete: Restrict)
+  bookings     Booking[]
+
+  @@unique([vehicleId, startsAt])
+  @@index([dealershipId])
+  @@index([startsAt, endsAt])
+  @@index([status])
+}
+
+model Booking {
+  id               String                 @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  customerId       String                 @db.Uuid
+  slotId           String                 @db.Uuid
+  status           BookingStatus          @default(PENDING)
+  customerNote     String?                @db.VarChar(500)
+  staffNote        String?                @db.VarChar(500)
+  cancelReason     String?
+  cancelledBy      Role?
+  decidedByStaffId String?                @db.Uuid
+  decidedAt        DateTime?              @db.Timestamptz
+  createdAt        DateTime               @default(now()) @db.Timestamptz
+  updatedAt        DateTime               @updatedAt @db.Timestamptz
+
+  customer         User                   @relation("CustomerBookings", fields: [customerId], references: [id], onDelete: Restrict)
+  decidedByStaff   User?                  @relation("StaffDecidedBookings", fields: [decidedByStaffId], references: [id], onDelete: SetNull)
+  slot             TimeSlot               @relation(fields: [slotId], references: [id], onDelete: Restrict)
+  statusHistory    BookingStatusHistory[]
+  notifications    Notification[]
+
+  @@index([customerId, status])
+  @@index([slotId])
+  @@index([status])
+}
+
+model BookingStatusHistory {
+  id          String        @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  bookingId   String        @db.Uuid
+  fromStatus  BookingStatus?
+  toStatus    BookingStatus
+  changedById String        @db.Uuid
+  note        String?
+  createdAt   DateTime      @default(now()) @db.Timestamptz
+
+  booking     Booking       @relation(fields: [bookingId], references: [id], onDelete: Cascade)
+  changedBy   User          @relation(fields: [changedById], references: [id], onDelete: Restrict)
+
+  @@index([bookingId])
+  @@index([changedById])
+}
+
+model Notification {
+  id        String           @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  userId    String           @db.Uuid
+  bookingId String?          @db.Uuid
+  type      NotificationType
+  title     String
+  message   String
+  readAt    DateTime?        @db.Timestamptz
+  createdAt DateTime         @default(now()) @db.Timestamptz
+
+  user      User             @relation(fields: [userId], references: [id], onDelete: Cascade)
+  booking   Booking?         @relation(fields: [bookingId], references: [id], onDelete: SetNull)
+
+  @@index([userId, readAt])
+  @@index([bookingId])
+}

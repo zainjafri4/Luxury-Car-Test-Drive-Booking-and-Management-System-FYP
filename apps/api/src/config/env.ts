@@ -1,26 +1,35 @@
-// Environment configuration — will be expanded in Phase 1 with full Zod validation.
-// For Phase 0 we just export raw process.env values so the server can start.
+import { z } from 'zod';
 
-export const env = {
-  NODE_ENV: process.env['NODE_ENV'] ?? 'development',
-  PORT: Number(process.env['PORT'] ?? 4000),
-  DATABASE_URL: process.env['DATABASE_URL'] ?? '',
-  JWT_ACCESS_SECRET: process.env['JWT_ACCESS_SECRET'] ?? '',
-  JWT_REFRESH_SECRET: process.env['JWT_REFRESH_SECRET'] ?? '',
-  ACCESS_TOKEN_TTL: process.env['ACCESS_TOKEN_TTL'] ?? '15m',
-  REFRESH_TOKEN_TTL: process.env['REFRESH_TOKEN_TTL'] ?? '7d',
-  WEB_ORIGIN: process.env['WEB_ORIGIN'] ?? 'http://localhost:3000',
-  APP_TIMEZONE: process.env['APP_TIMEZONE'] ?? 'Asia/Karachi',
-  MIN_BOOKING_LEAD_MINUTES: Number(process.env['MIN_BOOKING_LEAD_MINUTES'] ?? 60),
-  MAX_BOOKING_ADVANCE_DAYS: Number(process.env['MAX_BOOKING_ADVANCE_DAYS'] ?? 30),
-  MAX_ACTIVE_BOOKINGS_PER_CUSTOMER: Number(process.env['MAX_ACTIVE_BOOKINGS_PER_CUSTOMER'] ?? 3),
-  CANCELLATION_CUTOFF_HOURS: Number(process.env['CANCELLATION_CUTOFF_HOURS'] ?? 24),
-  SEED_STAFF_EMAIL: process.env['SEED_STAFF_EMAIL'] ?? 'staff@example.com',
-  SEED_STAFF_PASSWORD: process.env['SEED_STAFF_PASSWORD'] ?? 'ChangeMe123',
-  SMTP_HOST: process.env['SMTP_HOST'] ?? '',
-  SMTP_PORT: Number(process.env['SMTP_PORT'] ?? 587),
-  SMTP_USER: process.env['SMTP_USER'] ?? '',
-  SMTP_PASS: process.env['SMTP_PASS'] ?? '',
-  MAIL_FROM: process.env['MAIL_FROM'] ?? '',
-} as const;
+const envSchema = z.object({
+  NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+  PORT: z.coerce.number().default(4000),
+  DATABASE_URL: z.string().min(1, 'DATABASE_URL is required'),
+  JWT_ACCESS_SECRET: z.string().min(32, 'JWT_ACCESS_SECRET must be at least 32 characters'),
+  JWT_REFRESH_SECRET: z.string().min(32, 'JWT_REFRESH_SECRET must be at least 32 characters'),
+  ACCESS_TOKEN_TTL: z.string().default('15m'),
+  REFRESH_TOKEN_TTL: z.string().default('7d'),
+  WEB_ORIGIN: z.string().default('http://localhost:3000'),
+  APP_TIMEZONE: z.string().default('Asia/Karachi'),
+  MIN_BOOKING_LEAD_MINUTES: z.coerce.number().default(60),
+  MAX_BOOKING_ADVANCE_DAYS: z.coerce.number().default(30),
+  MAX_ACTIVE_BOOKINGS_PER_CUSTOMER: z.coerce.number().default(3),
+  CANCELLATION_CUTOFF_HOURS: z.coerce.number().default(24),
+  SEED_STAFF_EMAIL: z.string().email().default('staff@example.com'),
+  SEED_STAFF_PASSWORD: z.string().min(8).default('ChangeMe123'),
+  SMTP_HOST: z.string().optional().default(''),
+  SMTP_PORT: z.coerce.number().default(587),
+  SMTP_USER: z.string().optional().default(''),
+  SMTP_PASS: z.string().optional().default(''),
+  MAIL_FROM: z.string().optional().default(''),
+});
 
+const parsed = envSchema.safeParse(process.env);
+
+if (!parsed.success) {
+  console.error('Invalid environment configuration:');
+  console.error(JSON.stringify(parsed.error.format(), null, 2));
+  process.exit(1);
+}
+
+export const env = parsed.data;
+export type Env = z.infer<typeof envSchema>;

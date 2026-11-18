@@ -1,12 +1,19 @@
 # Graph Report - Luxury-Car-Test-Drive-Booking-and-Management-System-FYP  (2026-11-18)
 
 ## Corpus Check
-- Corpus is ~13,542 words - fits in a single context window. You may not need a graph.
+- 44 files · ~18,316 words
+- Verdict: corpus is large enough that graph structure adds value.
+- Unclassified: 9 file(s) not represented in the graph (top: (none) 6, .example 1, .prisma 1)
 
 ## Summary
-- 290 nodes · 322 edges · 27 communities (18 shown, 9 thin omitted)
-- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 4 edges (avg confidence: 0.85)
+- 355 nodes · 442 edges · 27 communities (19 shown, 8 thin omitted)
+- Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 5 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
+
+## Graph Freshness
+- Built from commit: `0a6ae918`
+- Run `git rev-parse HEAD` and compare to check if the graph is stale.
+- Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - Web Frontend Dependencies
@@ -35,25 +42,25 @@
 
 ## God Nodes (most connected - your core abstractions)
 1. `compilerOptions` - 16 edges
-2. `scripts` - 12 edges
-3. `compilerOptions` - 9 edges
-4. `postgres` - 8 edges
-5. `scripts` - 8 edges
-6. `Booking Data Model` - 6 edges
-7. `compilerOptions` - 5 edges
-8. `scripts` - 5 edges
-9. `healthcheck` - 5 edges
-10. `next` - 4 edges
+2. `compilerOptions` - 12 edges
+3. `scripts` - 12 edges
+4. `AppError` - 9 edges
+5. `BadRequestError` - 8 edges
+6. `postgres` - 8 edges
+7. `scripts` - 8 edges
+8. `express` - 7 edges
+9. `UnauthorizedError` - 6 edges
+10. `Booking Data Model` - 6 edges
 
 ## Surprising Connections (you probably didn't know these)
+- `M0.2 Secret Environment Setup Step` --conceptually_related_to--> `System Security Requirements Checklist`  [INFERRED]
+  docs/MANUAL_STEPS.md → initial_spec.md
 - `Quick Start Setup Guide` --references--> `Human Owner Manual Steps Protocol`  [INFERRED]
   README.md → docs/MANUAL_STEPS.md
 - `Booking Lifecycle State Machine` --conceptually_related_to--> `Booking Data Model`  [EXTRACTED]
   initial_spec.md → docs/ERD.md
 - `Booking Slot Active Partial Unique Index Mechanism` --rationale_for--> `Booking Data Model`  [EXTRACTED]
   initial_spec.md → docs/ERD.md
-- `M0.2 Secret Environment Setup Step` --conceptually_related_to--> `System Security Requirements Checklist`  [INFERRED]
-  docs/MANUAL_STEPS.md → initial_spec.md
 - `Monorepo Application Layering Architecture` --implements--> `System Fixed Tech Stack`  [EXTRACTED]
   docs/CODEMAP.md → initial_spec.md
 
@@ -62,22 +69,22 @@
 
 ## Hyperedges (group relationships)
 - **Booking Concurrency and Slot Integrity Cluster** — initial_spec_partial_unique_index, initial_spec_booking_creation_checks, docs_erd_booking, docs_erd_timeslot [EXTRACTED 0.95]
-- **Aurum Drive Visual Design Language** — docs_design_color_tokens, docs_design_typography, initial_spec_design_system [EXTRACTED 0.95]
 - **Core Domain Entities Schema** — docs_erd_user, docs_erd_dealership, docs_erd_vehicle, docs_erd_timeslot, docs_erd_booking [EXTRACTED 0.95]
+- **Aurum Drive Visual Design Language** — docs_design_color_tokens, docs_design_typography, initial_spec_design_system [EXTRACTED 0.95]
 
-## Communities (27 total, 9 thin omitted)
+## Communities (27 total, 8 thin omitted)
 
 ### Community 0 - "Web Frontend Dependencies"
-Cohesion: 0.06
-Nodes (43): dependencies, clsx@^2.1.1, lucide-react@^0.468.0, react@^19.0.0, react-dom@^19.0.0, react-hook-form@^7.54.0, sonner@^1.7.1, tailwind-merge@^2.5.5 (+35 more)
+Cohesion: 0.05
+Nodes (49): dependencies, clsx@^2.1.1, lucide-react@^0.468.0, react@^19.0.0, react-dom@^19.0.0, react-hook-form@^7.54.0, sonner@^1.7.1, tailwind-merge@^2.5.5 (+41 more)
 
 ### Community 1 - "API Dev Dependencies and Tooling"
-Cohesion: 0.08
-Nodes (36): devDependencies, prisma@^5.22.0, supertest@^7.0.0, tsx@^4.19.2, @types/bcrypt@^5.0.2, @types/cookie-parser@^1.4.8, @types/cors@^2.8.17, @types/express@^5.0.0 (+28 more)
+Cohesion: 0.05
+Nodes (54): dependencies, express@^4.21.2, express-rate-limit@^7.5.0, jsonwebtoken@^9.0.2, multer@^1.4.5-lts.1, pino@^9.5.0, pino-pretty@^13.0.0, swagger-ui-express@^5.0.1 (+46 more)
 
 ### Community 2 - "API Runtime Dependencies"
-Cohesion: 0.07
-Nodes (30): dependencies, bcrypt@^5.1.1, cookie-parser@^1.4.7, cors@^2.8.5, express@^4.21.2, express-rate-limit@^7.5.0, helmet@^8.0.0, jsonwebtoken@^9.0.2 (+22 more)
+Cohesion: 0.10
+Nodes (19): cookie-parser@^1.4.7, cors@^2.8.5, helmet@^8.0.0, nodemailer@^6.10.0, app, env, Env, envSchema (+11 more)
 
 ### Community 3 - "Docker Infrastructure and Database Service"
 Cohesion: 0.11
@@ -96,8 +103,8 @@ Cohesion: 0.15
 Nodes (12): Authentication API Endpoints, Booking Data Model, BookingStatusHistory Audit Trail Model, Dealership Data Model, Notification Data Model, RefreshToken Data Model, TimeSlot Data Model, User Data Model (+4 more)
 
 ### Community 7 - "Web App TypeScript Configuration"
-Cohesion: 0.14
-Nodes (13): compilerOptions, incremental, jsx, lib, module, moduleResolution, paths, plugins (+5 more)
+Cohesion: 0.12
+Nodes (16): compilerOptions, allowJs, incremental, isolatedModules, jsx, lib, module, moduleResolution (+8 more)
 
 ### Community 8 - "Shared Domain Enums and Types"
 Cohesion: 0.15
@@ -124,8 +131,8 @@ Cohesion: 0.33
 Nodes (5): extends, rules, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars, next/core-web-vitals
 
 ### Community 14 - "Web App Build Scripts"
-Cohesion: 0.40
-Nodes (5): scripts, build, dev, lint, start
+Cohesion: 0.09
+Nodes (23): AppError, BadRequestError, ConflictError, ErrorDetail, ForbiddenError, NotFoundError, UnauthorizedError, generateRefreshToken() (+15 more)
 
 ### Community 16 - "Project Specifications and Progress Tracking"
 Cohesion: 0.50
@@ -139,25 +146,29 @@ Nodes (3): Uniform API Error Shape, Monorepo Application Layering Architecture, 
 Cohesion: 0.67
 Nodes (3): Luxury Dark and Gold Color Tokens, Playfair Display and Inter Typography Scale, Aurum Drive Dark Luxury UI Design System
 
+### Community 20 - "API Environment Configuration"
+Cohesion: 0.20
+Nodes (5): bcrypt@^5.1.1, @prisma/client@^5.22.0, prisma, bcrypt, @prisma/client
+
 ## Knowledge Gaps
-- **20 isolated node(s):** `../../tsconfig.base.json`, `next/core-web-vitals`, `../../tsconfig.base.json`, `Aurum Drive System Overview`, `Quick Start Setup Guide` (+15 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 144 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **20 isolated node(s):** `../../tsconfig.base.json`, `../../tsconfig.base.json`, `next/core-web-vitals`, `Phase Tracking and Completion Checklist`, `Aurum Drive System Overview` (+15 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 174 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **8 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `scripts` connect `API Scripts and Database Workflows` to `API Dev Dependencies and Tooling`?**
-  _High betweenness centrality (0.020) - this node is a cross-community bridge._
-- **What connects `../../tsconfig.base.json`, `next/core-web-vitals`, `../../tsconfig.base.json` to the rest of the system?**
+- **Why does `zod` connect `Web App Build Scripts` to `Web Frontend Dependencies`, `API Runtime Dependencies`?**
+  _High betweenness centrality (0.144) - this node is a cross-community bridge._
+- **What connects `../../tsconfig.base.json`, `../../tsconfig.base.json`, `next/core-web-vitals` to the rest of the system?**
   _20 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `Web Frontend Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.06448202959830866 - nodes in this community are weakly interconnected._
-- **Why does `dependencies` connect `API Runtime Dependencies` to `API Dev Dependencies and Tooling`?**
-  _High betweenness centrality (0.014) - this node is a cross-community bridge._
+  _Cohesion score 0.054693877551020405 - nodes in this community are weakly interconnected._
+- **Why does `express` connect `Web App Build Scripts` to `API Dev Dependencies and Tooling`, `API Runtime Dependencies`?**
+  _High betweenness centrality (0.075) - this node is a cross-community bridge._
 - **Should `API Dev Dependencies and Tooling` be split into smaller, more focused modules?**
-  _Cohesion score 0.07657657657657657 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05 - nodes in this community are weakly interconnected._
+- **Why does `scripts` connect `API Scripts and Database Workflows` to `API Dev Dependencies and Tooling`?**
+  _High betweenness centrality (0.035) - this node is a cross-community bridge._
 - **Should `API Runtime Dependencies` be split into smaller, more focused modules?**
-  _Cohesion score 0.07056451612903226 - nodes in this community are weakly interconnected._
-- **Should `Docker Infrastructure and Database Service` be split into smaller, more focused modules?**
-  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.09846153846153846 - nodes in this community are weakly interconnected._

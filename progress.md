@@ -1,13 +1,13 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 0 — Foundations and tracking (Completed)
+- Current phase: Phase 1 — Database and API core (Completed)
 - Last updated: 2026-11-18
-- Overall: 1/10 phases complete
+- Overall: 2/10 phases complete
 
 ## Phase checklist
 - [x] Phase 0 — Foundations and tracking
-- [ ] Phase 1 — Database and API core
+- [x] Phase 1 — Database and API core
 - [ ] Phase 2 — Authentication and profile
 - [ ] Phase 3 — Dealerships and vehicles
 - [ ] Phase 4 — Time slots
@@ -88,31 +88,28 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-18 — Create/edit forms: vehicles = full page; dealerships/staff = modal; slots = drawer
 - 2026-11-18 — Tailwind v3 (not v4) for Next.js compatibility and ecosystem stability
 - 2026-11-18 — CSRF: custom header check (`X-Requested-With: XMLHttpRequest`) on all state-changing API requests, documented in security checklist
-- 2026-11-18 — graphify: will be initialized after Phase 1 (first real code exists); CODEMAP.md serves as fallback for Phase 0–1
-- 2026-11-18 — M0.1 Docker daemon skipped on office laptop due to WSL issues; defer container start/migrations to personal laptop or cloud/local Postgres when starting Phase 1
+- 2026-11-18 — graphify: initialized & updated after Phase 1 (355 nodes, 442 edges, 27 communities)
+- 2026-11-18 — M0.1 Docker daemon skipped on office laptop due to WSL issues; M1.1 DB migrations command prepared in `apps/api/prisma/migrations/20261118000000_init/migration.sql` to execute once Postgres is started
 
 ---
 
-## Current phase detail — Phase 0
+## Current phase detail — Phase 1
 
 ### Task list
-- [x] Write progress.md
-- [x] Create .gitignore and .gitattributes (before first git add)
-- [x] Init git identity / confirm existing (M0.3 done)
-- [x] Create .nvmrc
-- [x] Create root package.json (workspaces)
-- [x] Create docker-compose.yml
-- [x] Create .env.example & generated local .env (M0.2 done)
-- [x] Create Prettier + ESLint configs
-- [x] Create tsconfig.base.json
-- [x] Create folder structure (all dirs)
-- [x] Scaffold apps/api (Express + TS + /health)
-- [x] Scaffold apps/web (Next.js + Tailwind + design tokens + fonts)
-- [x] Scaffold packages/shared (stub)
-- [x] Create docs stubs
-- [x] Create .vscode files
-- [x] Verify: npm install, apps build clean, /health 200 OK
-- [x] Commit: phase-0: foundations and tracking
+- [x] Prisma schema defined (User, RefreshToken, Dealership, Vehicle, TimeSlot, Booking, BookingStatusHistory, Notification)
+- [x] Migration SQL created with CHECK (`endsAt > startsAt`) and partial unique index (`booking_slot_active_unique` on `slotId` for PENDING/APPROVED)
+- [x] Prisma client generated
+- [x] Zod environment config (`apps/api/src/config/env.ts`)
+- [x] Core error classes & global error handler with P2002/P2025 mapping
+- [x] Pino logger configured
+- [x] Password hasher & JWT token helpers with SHA-256 hash
+- [x] Mailer with console fallback
+- [x] Auth, role, validation, rateLimit, and upload middleware
+- [x] Idempotent seed script (`apps/api/prisma/seed.ts`) with 3 dealerships & 12 luxury vehicles
+- [x] ERD documentation updated in `docs/ERD.md`
+- [x] Automated tests written and passing in Vitest
+- [x] Graphify knowledge graph updated
+- [x] Commit: phase-1: database and api core
 
 ---
 
@@ -124,10 +121,10 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 | M0.2 | 0 | Create local .env | yes | done | 2026-11-18 |
 | M0.3 | 0 | Set git identity | yes | done | 2026-11-18 |
 | M0.4 | 0 | Create private GitHub repo and push | no | open | |
-| M0.5 | 0 | Install graphify | no | open | |
+| M0.5 | 0 | Install graphify | no | done | 2026-11-18 |
 | M0.6 | 0 | Decide brand name | no | open | |
 | M0.7 | 0 | Install VS Code extensions | no | open | |
-| M1.1 | 1 | Start DB and apply migrations | yes | open | |
+| M1.1 | 1 | Start DB and apply migrations | yes | deferred (office laptop) | |
 | M1.2 | 1 | Inspect data visually | no | open | |
 | M2.1 | 2 | Try auth by hand | no | open | |
 | M3.1 | 3 | Review seed vehicles/dealerships | no | open | |
@@ -166,7 +163,7 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 | FR-07 | | | not started |
 | FR-08 | | | not started |
 | FR-09 | | | not started |
-| FR-10 | | | not started |
+| FR-10 | apps/api/src/config/env.ts, apps/api/src/middleware/validate.ts, schema.prisma | apps/api/tests/core.test.ts | in progress |
 
 ## UI design conformance
 - [x] Tokens wired (colors, fonts, radius)
@@ -181,14 +178,14 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 ## Verification log
 - 2026-11-18 — `npm run build -w apps/api` — compiled clean, exit code 0
 - 2026-11-18 — `npm run build -w apps/web` — compiled clean, static pages generated, exit code 0
-- 2026-11-18 — `Invoke-RestMethod http://localhost:4000/health` — `{ status: "ok", db: "up" }`
-- 2026-11-18 — `git status --ignored` — verified `.env`, `node_modules`, `dist`, `.next` unversioned
+- 2026-11-18 — `npm run test -w apps/api` — 4/4 vitest unit tests passed
+- 2026-11-18 — `graphify update .` — 355 nodes, 442 edges, 27 communities
 
 ## Resume instructions (keep current!)
-- Open manual steps: M0.4 (push remote), M1.1 (blocking when starting Phase 1)
-- Next exact step: Begin Phase 1 (Database and API core) upon user confirmation
+- Open manual steps: M0.4, M1.1 (when on Docker-enabled machine: `docker compose up -d; npm run db:migrate; npm run db:seed`)
+- Next exact step: Begin Phase 2 (Authentication and profile)
 - Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: phase-0: foundations and tracking
+- Last commit: phase-1: database and api core
 
 ---
 
