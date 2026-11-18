@@ -1,0 +1,130 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ============================================================
+   AURUM DRIVE — Design Tokens (§9.5)
+   All color, radius, and motion values live here.
+   Never hardcode hex values in components.
+   ============================================================ */
+
+:root {
+  /* Background */
+  --bg: #0b0b0c;
+  --surface: #141416;
+  --surface-2: #1c1c20;
+
+  /* Borders */
+  --border: #2a2a30;
+  --border-strong: #3a3a42;
+
+  /* Text */
+  --text: #f5f2ea;
+  --text-muted: #a6a29a;
+  --text-faint: #6f6c66;
+
+  /* Gold accent */
+  --gold: #c9a24b;
+  --gold-hover: #d9b866;
+  --gold-soft: #e6d3a3;
+  --on-gold: #0b0b0c;
+
+  /* Semantic */
+  --success: #4caf7a;
+  --warning: #e0a93b;
+  --danger: #e5604f;
+  --info: #5b9bd5;
+
+  /* Radius */
+  --radius-input: 8px;
+  --radius-card: 14px;
+  --radius-modal: 18px;
+  --radius-badge: 999px;
+
+  /* Motion */
+  --duration-fast: 150ms;
+  --duration-base: 200ms;
+  --duration-slow: 250ms;
+  --duration-image: 500ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ============================================================
+   Base styles
+   ============================================================ */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-playfair), Georgia, serif;
+  line-height: 1.15;
+}
+
+/* Tabular numbers for stats/tables */
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Gold uppercase eyebrow label */
+.eyebrow {
+  font-size: 12px;
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--surface);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-faint);
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
