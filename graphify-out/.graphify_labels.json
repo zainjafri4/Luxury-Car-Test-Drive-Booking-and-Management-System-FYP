@@ -3,7 +3,6 @@
   "1": "NotFoundError",
   "2": "web/package.json",
   "3": "Docker Infrastructure and Database Service",
-  "4": "Root TypeScript Base Configuration",
   "5": "Monorepo Root Package Configuration",
   "6": "Database Models and Entity Schemas",
   "8": "Shared Domain Enums and Types",

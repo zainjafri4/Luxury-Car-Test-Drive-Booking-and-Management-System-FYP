@@ -56,8 +56,8 @@
     "semantic_hash": "657af9f0100efa7e65286daef3be2b22"
   },
   "apps/web/app/page.tsx": {
-    "mtime": 1795036588.894862,
-    "seen": 1795036738.9155746,
+    "mtime": 1795036777.9070811,
+    "seen": 1795037501.5436003,
     "ast_hash": "c7957bf43a36db0d84b82131be1eb0ea",
     "semantic_hash": ""
   },
@@ -74,10 +74,10 @@
     "semantic_hash": "ecea187ad9d9b6935286ad4750c5e60e"
   },
   "apps/web/package.json": {
-    "mtime": 1795036227.255219,
-    "seen": 1795036738.9155917,
-    "ast_hash": "ee42b79c0996b74f387b91ff2187ad4f",
-    "semantic_hash": "ee42b79c0996b74f387b91ff2187ad4f"
+    "mtime": 1795037081.3301356,
+    "seen": 1795037501.5450828,
+    "ast_hash": "55c579212ccf7d800ddfeb12cf73f975",
+    "semantic_hash": ""
   },
   "apps/web/postcss.config.js": {
     "mtime": 1795019583.4869246,
@@ -152,8 +152,8 @@
     "semantic_hash": "490949163974fc883dca84efcafb9d33"
   },
   "docs/DESIGN.md": {
-    "mtime": 1795036716.350908,
-    "seen": 1795036738.9158797,
+    "mtime": 1795036777.9622946,
+    "seen": 1795037501.5460894,
     "ast_hash": "78898ef1dc38e4c732efc55afaff104b",
     "semantic_hash": ""
   },
@@ -176,9 +176,9 @@
     "semantic_hash": ""
   },
   "progress.md": {
-    "mtime": 1795036730.0926373,
-    "seen": 1795036738.9160051,
-    "ast_hash": "3f2877479836e2eb0c5e4e164da5ee6d",
+    "mtime": 1795036912.4088373,
+    "seen": 1795037501.5473218,
+    "ast_hash": "d1720d485c129fabe3f796a2097adc2c",
     "semantic_hash": ""
   },
   "apps/api/prisma/seed.ts": {
@@ -428,10 +428,10 @@
     "semantic_hash": "bd77e50f9cf7c0ca3abd8c36fd80098a"
   },
   "apps/api/src/modules/dashboard/routes.ts": {
-    "mtime": 1795024016.2677262,
-    "seen": 1795036738.9155354,
-    "ast_hash": "ea92d5a43dc4024841d2a5be6442386f",
-    "semantic_hash": "ea92d5a43dc4024841d2a5be6442386f"
+    "mtime": 1795037402.321679,
+    "seen": 1795037501.5388956,
+    "ast_hash": "019e62d84aaf1c43c45d41d2c446fb88",
+    "semantic_hash": ""
   },
   "apps/api/src/modules/notifications/controller.ts": {
     "mtime": 1795024016.3091204,
@@ -607,10 +607,76 @@
     "ast_hash": "128527de2493209645b87a6267fbbc36",
     "semantic_hash": ""
   },
+  "apps/web/app/admin/bookings/page.tsx": {
+    "mtime": 1795037224.263824,
+    "seen": 1795037501.5419793,
+    "ast_hash": "31280b6ddfcffc553110edd20276746d",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/dashboard/page.tsx": {
+    "mtime": 1795037183.2208576,
+    "seen": 1795037501.5419827,
+    "ast_hash": "efb559ed8a83a5b9dc514b3181efce65",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/dealerships/page.tsx": {
+    "mtime": 1795037337.1070108,
+    "seen": 1795037501.541985,
+    "ast_hash": "79003144f8702d9482c239bbe1f0fa9c",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/layout.tsx": {
+    "mtime": 1795037112.2730935,
+    "seen": 1795037501.5419872,
+    "ast_hash": "f67587eef356c244142999e3bea9d8ac",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/slots/page.tsx": {
+    "mtime": 1795037381.7062263,
+    "seen": 1795037501.5419886,
+    "ast_hash": "0e7085ae627eca36c25c0b360b06db62",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/users/page.tsx": {
+    "mtime": 1795037435.473477,
+    "seen": 1795037501.5419915,
+    "ast_hash": "059aebab9b5bb817080b08aaf85ac25a",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/vehicles/[id]/edit/page.tsx": {
+    "mtime": 1795037308.7349167,
+    "seen": 1795037501.5419934,
+    "ast_hash": "481b71c1463b275661aa8ca00be983c8",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/vehicles/new/page.tsx": {
+    "mtime": 1795037301.3386068,
+    "seen": 1795037501.541995,
+    "ast_hash": "b6aae490c4a94b5be2067f1f19ceca7a",
+    "semantic_hash": ""
+  },
+  "apps/web/app/admin/vehicles/page.tsx": {
+    "mtime": 1795037248.2324736,
+    "seen": 1795037501.5419967,
+    "ast_hash": "f0c8ce4970fb8267281d95d8d76b88e8",
+    "semantic_hash": ""
+  },
+  "apps/web/components/admin/AdminSidebar.tsx": {
+    "mtime": 1795037103.8077068,
+    "seen": 1795037501.5438843,
+    "ast_hash": "0e46badaaf64997e4e9e7ed72e9685c1",
+    "semantic_hash": ""
+  },
+  "apps/web/components/admin/VehicleForm.tsx": {
+    "mtime": 1795037296.0994866,
+    "seen": 1795037501.5438864,
+    "ast_hash": "830c49ffe2166347b641c72505769d13",
+    "semantic_hash": ""
+  },
   "package-lock.json": {
-    "mtime": 1795036692.9969182,
-    "seen": 1795036738.916011,
-    "ast_hash": "454283a4fbd4bb56aaca682716e603e6",
+    "mtime": 1795037469.8327808,
+    "seen": 1795037501.5475533,
+    "ast_hash": "a8c6697be348ac50f89da5f233be8e90",
     "semantic_hash": ""
   }
 }

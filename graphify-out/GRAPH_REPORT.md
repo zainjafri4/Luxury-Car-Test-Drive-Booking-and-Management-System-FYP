@@ -1,17 +1,17 @@
 # Graph Report - Luxury-Car-Test-Drive-Booking-and-Management-System-FYP  (2026-11-19)
 
 ## Corpus Check
-- 93 files · ~42,731 words
+- 104 files · ~52,849 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 9 file(s) not represented in the graph (top: (none) 6, .example 1, .prisma 1)
 
 ## Summary
-- 635 nodes · 1306 edges · 35 communities (26 shown, 9 thin omitted)
+- 675 nodes · 1488 edges · 35 communities (25 shown, 10 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 13 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `41b6d602`
+- Built from commit: `88bb2a14`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -20,19 +20,19 @@
 - NotFoundError
 - web/package.json
 - Docker Infrastructure and Database Service
-- Root TypeScript Base Configuration
+- AuthController
 - Monorepo Root Package Configuration
 - Database Models and Entity Schemas
-- BookingsController
+- jsonwebtoken
 - Shared Domain Enums and Types
 - API Scripts and Database Workflows
 - app.ts
-- express
+- dealerships/service.ts
 - Shared Package Manifest
 - Web ESLint Rules and Configuration
 - api/tsconfig.json
 - API ESLint Configuration
-- @types/swagger-ui-express@^4.1.7
+- pino-pretty@^13.0.0
 - System Architecture and Error Handling
 - Security, Auth Conventions and Secrets
 - Luxury UI Design System and Tokens
@@ -50,16 +50,16 @@
 - Seed Accounts Specification
 
 ## God Nodes (most connected - your core abstractions)
-1. `NotFoundError` - 29 edges
-2. `Button` - 27 edges
-3. `ConflictError` - 24 edges
-4. `Card` - 24 edges
-5. `react` - 23 edges
-6. `express` - 22 edges
-7. `BadRequestError` - 20 edges
-8. `next` - 16 edges
-9. `prisma` - 16 edges
-10. `compilerOptions` - 16 edges
+1. `Button` - 43 edges
+2. `Card` - 38 edges
+3. `react` - 34 edges
+4. `NotFoundError` - 29 edges
+5. `Input` - 27 edges
+6. `ConflictError` - 24 edges
+7. `next` - 22 edges
+8. `express` - 22 edges
+9. `BadRequestError` - 20 edges
+10. `Modal()` - 19 edges
 
 ## Surprising Connections (you probably didn't know these)
 - `Booking Lifecycle State Machine` --conceptually_related_to--> `Booking Data Model`  [EXTRACTED]
@@ -81,51 +81,47 @@
 - **Core Domain Entities Schema** — docs_erd_user, docs_erd_dealership, docs_erd_vehicle, docs_erd_timeslot, docs_erd_booking [EXTRACTED 0.95]
 - **Zain Reserve Visual Design Language** — docs_design_color_tokens, docs_design_typography, initial_spec_design_system [EXTRACTED 0.95]
 
-## Communities (35 total, 9 thin omitted)
+## Communities (35 total, 10 thin omitted)
 
 ### Community 0 - "app.ts"
-Cohesion: 0.08
-Nodes (61): DesignReviewPage(), AccountPage(), NewBookingContent(), NewBookingPage(), SlotDetails, BookingItem, MyBookingsPage(), Dealership (+53 more)
+Cohesion: 0.06
+Nodes (87): DesignReviewPage(), AccountPage(), AdminBookingsPage(), AvailableSlot, BookingItem, AdminDashboardPage(), DashboardSummary, PendingBooking (+79 more)
 
 ### Community 1 - "NotFoundError"
-Cohesion: 0.09
-Nodes (25): AppError, BadRequestError, ConflictError, ErrorDetail, NotFoundError, sendEmail(), bookingsController, adminBookingsRouter (+17 more)
+Cohesion: 0.06
+Nodes (34): currentDir, env, Env, envSchema, parsed, BadRequestError, ConflictError, NotFoundError (+26 more)
 
 ### Community 2 - "web/package.json"
 Cohesion: 0.05
-Nodes (49): @types/node@^22.9.0, typescript@^5.7.2, @types/node, typescript, dependencies, clsx@^2.1.1, lucide-react@^0.468.0, next@^15.0.4 (+41 more)
+Nodes (48): dependencies, clsx@^2.1.1, lucide-react@^0.468.0, next@^15.0.4, react@^19.0.0, react-dom@^19.0.0, react-hook-form@^7.54.0, recharts@^3.11.0 (+40 more)
 
 ### Community 3 - "Docker Infrastructure and Database Service"
 Cohesion: 0.09
 Nodes (14): VehiclesController, vehiclesController, vehiclesRouter, CreateVehicleInput, createVehicleSchema, fuelTypeEnum, removeImageSchema, UpdateVehicleInput (+6 more)
 
-### Community 4 - "Root TypeScript Base Configuration"
-Cohesion: 0.11
-Nodes (17): multer@^1.4.5-lts.1, pino@^9.5.0, currentDir, env, Env, envSchema, parsed, logger (+9 more)
-
 ### Community 5 - "Monorepo Root Package Configuration"
 Cohesion: 0.12
-Nodes (14): SlotsController, slotsController, slotsRouter, BulkGenerateSlotsInput, bulkGenerateSlotsSchema, CreateSlotInput, createSlotSchema, SlotQueryInput (+6 more)
+Nodes (15): SlotsController, slotsController, slotsRouter, BulkGenerateSlotsInput, bulkGenerateSlotsSchema, CreateSlotInput, createSlotSchema, SlotQueryInput (+7 more)
 
 ### Community 6 - "Database Models and Entity Schemas"
 Cohesion: 0.12
 Nodes (16): compilerOptions, allowJs, incremental, isolatedModules, jsx, lib, module, moduleResolution (+8 more)
 
 ### Community 8 - "Shared Domain Enums and Types"
-Cohesion: 0.11
-Nodes (18): dependencies, cookie-parser@^1.4.7, express@^4.21.2, express-rate-limit@^7.5.0, helmet@^8.0.0, jsonwebtoken@^9.0.2, nodemailer@^6.10.0, pino-pretty@^13.0.0 (+10 more)
+Cohesion: 0.10
+Nodes (21): dependencies, cookie-parser@^1.4.7, cors@^2.8.5, express@^4.21.2, express-rate-limit@^7.5.0, helmet@^8.0.0, multer@^1.4.5-lts.1, nodemailer@^6.10.0 (+13 more)
 
 ### Community 9 - "API Scripts and Database Workflows"
-Cohesion: 0.11
-Nodes (19): devDependencies, supertest@^7.0.0, tsx@^4.19.2, @types/bcryptjs@^2.4.6, @types/cors@^2.8.17, @types/express@^5.0.0, @types/jsonwebtoken@^9.0.7, @types/multer@^1.4.12 (+11 more)
+Cohesion: 0.10
+Nodes (21): devDependencies, supertest@^7.0.0, @types/bcryptjs@^2.4.6, @types/cookie-parser@^1.4.8, @types/express@^5.0.0, @types/multer@^1.4.12, @types/node@^22.9.0, @types/nodemailer@^6.4.17 (+13 more)
 
 ### Community 10 - "app.ts"
-Cohesion: 0.07
-Nodes (34): app, uploadDir, openapiDoc, ForbiddenError, UnauthorizedError, generateAccessToken(), generateRefreshToken(), hashToken() (+26 more)
+Cohesion: 0.05
+Nodes (53): app, uploadDir, openapiDoc, AppError, ErrorDetail, ForbiddenError, UnauthorizedError, generateAccessToken() (+45 more)
 
-### Community 11 - "express"
-Cohesion: 0.07
-Nodes (22): RequestValidators, validate(), DealershipsController, dealershipsController, dealershipsRouter, CreateDealershipInput, createDealershipSchema, dealershipQuerySchema (+14 more)
+### Community 11 - "dealerships/service.ts"
+Cohesion: 0.12
+Nodes (8): DealershipsController, CreateDealershipInput, createDealershipSchema, dealershipQuerySchema, UpdateDealershipInput, updateDealershipSchema, DealershipsService, dealershipsService
 
 ### Community 12 - "Shared Package Manifest"
 Cohesion: 0.16
@@ -156,8 +152,8 @@ Cohesion: 0.15
 Nodes (12): BOOKING_STATUSES, BookingStatus, FUEL_TYPES, FuelType, NOTIFICATION_TYPES, NotificationType, Role, ROLES (+4 more)
 
 ### Community 20 - "api/package.json"
-Cohesion: 0.17
-Nodes (11): cors@^2.8.5, prisma@^5.22.0, @types/cookie-parser@^1.4.8, engines, node, name, private, version (+3 more)
+Cohesion: 0.14
+Nodes (13): prisma@^5.22.0, tsx@^4.19.2, @types/cors@^2.8.17, @types/jsonwebtoken@^9.0.7, engines, node, name, private (+5 more)
 
 ### Community 21 - "@prisma/client"
 Cohesion: 0.17
@@ -172,8 +168,8 @@ Cohesion: 0.33
 Nodes (5): extends, rules, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars, next/core-web-vitals
 
 ### Community 25 - "User Profile API Endpoints"
-Cohesion: 0.29
-Nodes (5): bcryptjs@^2.4.3, @prisma/client@^5.22.0, prisma, bcryptjs, @prisma/client
+Cohesion: 0.40
+Nodes (3): bcryptjs@^2.4.3, prisma, bcryptjs
 
 ### Community 27 - "Zain Reserve Dark Luxury UI Design System"
 Cohesion: 0.50
@@ -189,23 +185,23 @@ Nodes (3): Luxury Dark and Gold Color Tokens, Playfair Display and Inter Typogra
 
 ## Knowledge Gaps
 - **20 isolated node(s):** `../../tsconfig.base.json`, `next/core-web-vitals`, `../../tsconfig.base.json`, `BookingStatusHistory Audit Trail Model`, `Notification Data Model` (+15 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 235 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **9 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 250 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **10 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `express` connect `express` to `NotFoundError`, `Docker Infrastructure and Database Service`, `Root TypeScript Base Configuration`, `Monorepo Root Package Configuration`, `Shared Domain Enums and Types`, `app.ts`, `Shared Package Manifest`, `api/package.json`?**
-  _High betweenness centrality (0.174) - this node is a cross-community bridge._
+- **Why does `zod` connect `app.ts` to `NotFoundError`, `web/package.json`, `Docker Infrastructure and Database Service`, `Monorepo Root Package Configuration`, `dealerships/service.ts`, `Shared Package Manifest`?**
+  _High betweenness centrality (0.280) - this node is a cross-community bridge._
 - **What connects `../../tsconfig.base.json`, `next/core-web-vitals`, `../../tsconfig.base.json` to the rest of the system?**
   _20 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `app.ts` be split into smaller, more focused modules?**
-  _Cohesion score 0.08019853709508883 - nodes in this community are weakly interconnected._
-- **Why does `@types/node` connect `web/package.json` to `api/package.json`?**
-  _High betweenness centrality (0.119) - this node is a cross-community bridge._
+  _Cohesion score 0.06258064516129032 - nodes in this community are weakly interconnected._
+- **Why does `react` connect `app.ts` to `web/package.json`?**
+  _High betweenness centrality (0.097) - this node is a cross-community bridge._
 - **Should `NotFoundError` be split into smaller, more focused modules?**
-  _Cohesion score 0.09176470588235294 - nodes in this community are weakly interconnected._
-- **Why does `typescript` connect `web/package.json` to `api/package.json`?**
-  _High betweenness centrality (0.119) - this node is a cross-community bridge._
+  _Cohesion score 0.05555555555555555 - nodes in this community are weakly interconnected._
+- **Why does `express` connect `app.ts` to `NotFoundError`, `Docker Infrastructure and Database Service`, `Monorepo Root Package Configuration`, `Shared Domain Enums and Types`, `Shared Package Manifest`, `api/package.json`?**
+  _High betweenness centrality (0.084) - this node is a cross-community bridge._
 - **Should `web/package.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.052244897959183675 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.05357142857142857 - nodes in this community are weakly interconnected._

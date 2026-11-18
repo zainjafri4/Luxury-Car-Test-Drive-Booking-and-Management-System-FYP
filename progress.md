@@ -1,9 +1,9 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 8 — Frontend: admin portal
+- Current phase: Phase 9 — QA, polish, docs, deployment readiness
 - Last updated: 2026-11-19
-- Overall: 8/10 phases complete
+- Overall: 9/10 phases complete
 
 ## Phase checklist
 - [x] Phase 0 — Foundations and tracking
@@ -14,7 +14,7 @@
 - [x] Phase 5 — Bookings, state machine, notifications
 - [x] Phase 6 — API docs and hardening
 - [x] Phase 7 — Frontend: public + customer
-- [ ] Phase 8 — Frontend: admin portal
+- [x] Phase 8 — Frontend: admin portal
 - [ ] Phase 9 — QA, polish, docs, deployment readiness
 
 ---
@@ -92,39 +92,51 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-18 — M0.1 Docker daemon skipped on office laptop due to WSL issues; M1.1 DB migrations command prepared in `apps/api/prisma/migrations/20261118000000_init/migration.sql` to execute once Postgres is started
 - 2026-11-19 — graphify: updated after Phase 7 (635 nodes, 1306 edges, 35 communities)
 - 2026-11-19 — Phase 7: Elevated luxury design tokens with obsidian glassmorphic theme and ambient gold mesh; Next.js 15 production build validated with 14 static/dynamic routes.
+- 2026-11-19 — Phase 8: Complete Admin Concierge Portal created (dashboard with Recharts, bookings workflow with approve/reject/reschedule/complete modals, vehicle fleet CRUD, showroom boutique CRUD, time slot calendar with bulk generate, user/staff administration). Next.js production build verified clean (21 routes).
+- 2026-11-19 — graphify: updated after Phase 8 (675 nodes, 1488 edges, 35 communities)
 
 ---
 
-## Current phase detail — Phase 7
+## Current phase detail — Phase 8
 
 ### Task list
-- [x] Design tokens configured in `apps/web/app/globals.css` (obsidian dark, glassmorphic panels, hairline metallic gold borders, WCAG AA contrast)
-- [x] Typography configured: Playfair Display for headings and Inter for body text
-- [x] Reusable luxury component library created in `apps/web/components/ui/*`:
-  - `Button` (primary, secondary, ghost, danger, loading states)
-  - `Input` (floating/stacked labels, gold focus ring, error message)
-  - `Card` (surface background, hairline border, hover elevation)
-  - `StatusBadge` (pulse indicator across 5 booking states)
-  - `Modal` (backdrop blur, ESC key dismiss, accessibility attributes)
-  - `SlotPicker` (horizontal date strip, time slot selection, booked slot disabling)
-  - `VehicleCard` (image container, specification badges, direct booking CTA)
-- [x] Visual design catalog implemented at `/_design` and `/design` for component inspection
-- [x] Brand layout headers and footers with responsive mobile navigation and auth state (`Header.tsx`, `Footer.tsx`)
-- [x] Public & Customer routes implemented according to §9.7:
-  - Landing page (`/`) with editorial hero, key metrics, fleet showcase, process journey, and boutique locations
-  - Vehicle catalog (`/vehicles`) with live search, filters (manufacturer, type, fuel, dealership), sort, and pagination
-  - Vehicle detail (`/vehicles/[id]`) with gallery, technical specifications, features list, and interactive `SlotPicker`
-  - Showrooms directory (`/dealerships`) with hours, phone, address, and fleet counts
-  - Authentication pages (`/login`, `/register`) with client validation, toast feedback, and JWT session handling
-  - Booking flow (`/bookings/new`) with booking review, customer notes, and 409 conflict handling
-  - Customer bookings management (`/bookings`) with partitioned status tabs and 24h cutoff cancellation modal
-  - Customer account management (`/account`) with profile update and password change
-- [x] Client API wrapper (`apps/web/lib/api.ts`) with credentials support, error unwrapping, and custom CSRF header
-- [x] Authentication state provider (`apps/web/lib/auth-context.tsx`) with login, register, logout, and `/me` revalidation
-- [x] Production build clean: `npm run build -w apps/web` passes with 14 routes optimized
-- [x] Design documentation finalized in `docs/DESIGN.md`
-- [x] Graphify knowledge graph updated (635 nodes, 1306 edges, 35 communities)
-- [x] Commit: phase-7: frontend public and customer experience
+- [x] Admin layout and navigation created (`apps/web/app/admin/layout.tsx` + `AdminSidebar.tsx`) with role authorization guard (STAFF role required)
+- [x] Admin dashboard implemented (`apps/web/app/admin/dashboard/page.tsx`):
+  - 5 StatCards (Pending needing action with gold highlight, Today, Next 7 days, Active vehicles, Slot utilisation %)
+  - Recharts pipeline breakdown donut chart
+  - Recharts 30-day demand velocity area chart
+  - Pending requests queue table with inline Approve and Reject actions (mandatory staff note modal)
+- [x] Test-drive bookings management implemented (`apps/web/app/admin/bookings/page.tsx`):
+  - Filter bar (status, customer search, sorting)
+  - Bookings data table with pagination
+  - Approve action with automated customer notification
+  - Reject modal with required reason note
+  - Reschedule modal strictly constrained to same vehicle per §7.4
+  - Complete drive action
+  - Details modal with customer note, internal staff note, and timestamps
+- [x] Vehicle fleet inventory management implemented (`apps/web/app/admin/vehicles/page.tsx`):
+  - Filterable inventory table
+  - Soft-deactivate action with consequence alert (cascade closes future slots, cancels pending drives, notifies customer)
+- [x] Vehicle commissioning and editing forms (`apps/web/components/admin/VehicleForm.tsx`, `new/page.tsx`, `[id]/edit/page.tsx`):
+  - Sectioned form (Basics, Specs, Features, Gallery, Availability)
+  - Sticky save bar
+  - Multi-image gallery with Cover image elevation and deletion
+- [x] Boutique showroom management implemented (`apps/web/app/admin/dealerships/page.tsx`):
+  - Showrooms directory grid with fleet counts and hours
+  - Create/edit modal with operating hours format validation
+- [x] Time slot calendar implemented (`apps/web/app/admin/slots/page.tsx`):
+  - Vehicle selector and 7-day week calendar grid
+  - Visual status color codes (Available: gold border, Booked: locked warning, Inactive: muted)
+  - Single slot creation modal
+  - Bulk slot generation modal (batch date range, hours, duration, gap buffer)
+  - Slot diagnostics modal explaining `SLOT_HAS_ACTIVE_BOOKING` conflict
+- [x] User and personnel administration implemented (`apps/web/app/admin/users/page.tsx`):
+  - Clientele registry with search, reservation history dossier, and suspension toggle
+  - Concierge staff roster with new staff creation modal
+- [x] Backend tests: 30/30 Vitest tests pass across all suites
+- [x] Web build: 21 Next.js routes compiled cleanly with 0 errors
+- [x] Graphify knowledge graph updated (675 nodes, 1488 edges, 35 communities)
+- [x] Commit: phase-8: frontend admin portal
 
 ---
 
@@ -184,8 +196,8 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - [x] Tokens wired (colors, fonts, radius) — 2026-11-18
 - [x] components/ui complete and shown on /_design — 2026-11-18
 - [x] Public pages match 9.7 (Header, Footer, Hero, How it works, CTA) — 2026-11-18
-- [ ] Admin pages match 9.7
-- [x] docs/DESIGN.md up to date — 2026-11-18
+- [x] Admin pages match 9.7 (Dashboard, Bookings, Vehicles, Showrooms, Slots, Users) — 2026-11-19
+- [x] docs/DESIGN.md up to date — 2026-11-19
 
 ## Blockers
 (none)
@@ -194,12 +206,12 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-18 — `npm run build -w apps/api` — compiled clean, exit code 0
 - 2026-11-18 — `npm run test -w apps/api` — 30/30 tests pass across 6 test suites
 - 2026-11-19 — `npm run test -w apps/api` — 30/30 tests pass across 6 test suites
-- 2026-11-19 — `npm run build -w apps/web` — compiled clean, 14 routes statically/dynamically generated
-- 2026-11-19 — `graphify update .` — 635 nodes, 1306 edges, 35 communities
+- 2026-11-19 — `npm run build -w apps/web` — compiled clean, 21 routes statically/dynamically generated
+- 2026-11-19 — `graphify update .` — 675 nodes, 1488 edges, 35 communities
 
 ## Resume instructions (keep current!)
-- Open manual steps: M0.4, M1.1, M2.1, M3.1, M3.2, M4.1, M5.1, M5.2, M6.1, M7.1, M7.2
-- Next exact step: Begin Phase 8 (Frontend: admin portal)
+- Open manual steps: M0.4, M1.1, M2.1, M3.1, M3.2, M4.1, M5.1, M5.2, M6.1, M7.1, M7.2, M8.1
+- Next exact step: Begin Phase 9 (QA, polish, docs, deployment readiness)
 - Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: eff30f5 phase-7: luxury design overhaul, public catalog, customer booking experience
+- Last commit: phase-8: frontend admin portal
 

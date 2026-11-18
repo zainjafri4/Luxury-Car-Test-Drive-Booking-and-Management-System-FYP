@@ -274,3 +274,26 @@ dashboardRouter.post('/staff', validate({ body: createStaffSchema }), async (req
   }
 });
 
+// GET /api/v1/admin/staff (§8.8: List all staff accounts)
+dashboardRouter.get('/staff', async (_req, res, next) => {
+  try {
+    const staff = await prisma.user.findMany({
+      where: { role: 'STAFF' },
+      orderBy: { createdAt: 'desc' },
+      select: {
+        id: true,
+        email: true,
+        fullName: true,
+        phone: true,
+        role: true,
+        isActive: true,
+        createdAt: true,
+        lastLoginAt: true,
+      },
+    });
+    res.json({ data: staff });
+  } catch (err) {
+    next(err);
+  }
+});
+
