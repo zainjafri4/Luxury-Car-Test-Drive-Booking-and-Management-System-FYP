@@ -1,9 +1,9 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 7 — Frontend: public + customer (In Progress)
+- Current phase: Phase 8 — Frontend: admin portal
 - Last updated: 2026-11-19
-- Overall: 7/10 phases complete
+- Overall: 8/10 phases complete
 
 ## Phase checklist
 - [x] Phase 0 — Foundations and tracking
@@ -13,7 +13,7 @@
 - [x] Phase 4 — Time slots
 - [x] Phase 5 — Bookings, state machine, notifications
 - [x] Phase 6 — API docs and hardening
-- [/] Phase 7 — Frontend: public + customer
+- [x] Phase 7 — Frontend: public + customer
 - [ ] Phase 8 — Frontend: admin portal
 - [ ] Phase 9 — QA, polish, docs, deployment readiness
 
@@ -193,84 +193,13 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 ## Verification log
 - 2026-11-18 — `npm run build -w apps/api` — compiled clean, exit code 0
 - 2026-11-18 — `npm run test -w apps/api` — 30/30 tests pass across 6 test suites
-- 2026-11-18 — `graphify update .` — 566 nodes, 1011 edges, 41 communities
+- 2026-11-19 — `npm run test -w apps/api` — 30/30 tests pass across 6 test suites
+- 2026-11-19 — `npm run build -w apps/web` — compiled clean, 14 routes statically/dynamically generated
+- 2026-11-19 — `graphify update .` — 635 nodes, 1306 edges, 35 communities
 
 ## Resume instructions (keep current!)
-- Open manual steps: M0.4, M1.1, M2.1, M3.1, M3.2, M4.1, M5.1, M5.2, M6.1
-- Next exact step: Begin Phase 7 (Frontend: public + customer)
+- Open manual steps: M0.4, M1.1, M2.1, M3.1, M3.2, M4.1, M5.1, M5.2, M6.1, M7.1, M7.2
+- Next exact step: Begin Phase 8 (Frontend: admin portal)
 - Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: phase-6: api docs and hardening
-
----
-
-## Manual steps (for the human owner)
-
-| ID | Phase | Title | Blocking? | Status | Confirmed on |
-|----|-------|-------|-----------|--------|--------------|
-| M0.1 | 0 | Install prerequisites | yes | open | |
-| M0.2 | 0 | Create local .env | yes | open | |
-| M0.3 | 0 | Set git identity | yes | open | |
-| M0.4 | 0 | Create private GitHub repo and push | no | open | |
-| M0.5 | 0 | Install graphify | no | open | |
-| M0.6 | 0 | Decide brand name | no | open | |
-| M0.7 | 0 | Install VS Code extensions | no | open | |
-| M1.1 | 1 | Start DB and apply migrations | yes | open | |
-| M1.2 | 1 | Inspect data visually | no | open | |
-| M2.1 | 2 | Try auth by hand | no | open | |
-| M3.1 | 3 | Review seed vehicles/dealerships | no | open | |
-| M3.2 | 3 | Provide real images (optional) | no | open | |
-| M4.1 | 4 | Confirm timezone | no | open | |
-| M5.1 | 5 | Optional real email | no | open | |
-| M5.2 | 5 | Run concurrency test | no | open | |
-| M6.1 | 6 | Review Swagger UI | no | open | |
-| M6.2 | 6 | Dependency audit | no | open | |
-| M6.3 | 6 | Rotate weak local secrets | no | open | |
-| M7.1 | 7 | Visual design review | yes | open | |
-| M7.2 | 7 | Browser acceptance test | yes | open | |
-| M7.3 | 7 | Provide hero/brand assets | no | open | |
-| M7.4 | 7 | Take screenshots | no | open | |
-| M8.1 | 8 | Full lifecycle acceptance test | yes | open | |
-| M8.2 | 8 | Upload real vehicle images | no | open | |
-| M8.3 | 8 | Add own staff account | no | open | |
-| M9.1 | 9 | Install Playwright browsers | yes | open | |
-| M9.2 | 9 | Fresh-clone test | yes | open | |
-| M9.3 | 9 | Accessibility spot check | no | open | |
-| M9.4 | 9 | Final screenshots and demo | no | open | |
-| M9.5 | 9 | Final repo hygiene | no | open | |
-| M9.6 | 9 | Optional deployment | no | open | |
-
----
-
-## Requirements coverage
-| ID | Implemented in (files) | Tested in | Status |
-|----|------------------------|-----------|--------|
-| FR-01 | | | not started |
-| FR-02 | | | not started |
-| FR-03 | | | not started |
-| FR-04 | | | not started |
-| FR-05 | | | not started |
-| FR-06 | | | not started |
-| FR-07 | | | not started |
-| FR-08 | | | not started |
-| FR-09 | | | not started |
-| FR-10 | | | not started |
-
-## UI design conformance
-- [ ] Tokens wired (colors, fonts, radius)
-- [ ] components/ui complete and shown on /_design
-- [ ] Public pages match 9.7
-- [ ] Admin pages match 9.7
-- [ ] docs/DESIGN.md up to date
-
-## Blockers
-(none)
-
-## Verification log
-(none yet)
-
-## Resume instructions (keep current!)
-- Open manual steps: M0.1 (BLOCKING), M0.2 (BLOCKING), M0.3 (BLOCKING)
-- Next exact step: create .gitignore + .gitattributes, then scaffold full repo
-- Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: none yet
+- Last commit: eff30f5 phase-7: luxury design overhaul, public catalog, customer booking experience
 
