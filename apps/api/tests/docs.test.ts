@@ -42,3 +42,4 @@ describe('API Documentation & Security Hardening (Phase 6)', () => {
     expect(res.headers['x-frame-options']).toBe('SAMEORIGIN');
   });
 });
+

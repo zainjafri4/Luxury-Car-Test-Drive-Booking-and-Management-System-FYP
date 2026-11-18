@@ -167,11 +167,11 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 | FR-10 | apps/api/src/config/env.ts, apps/api/src/middleware/validate.ts, schema.prisma, openapi.ts | apps/api/tests/core.test.ts, tests/docs.test.ts | implemented |
 
 ## UI design conformance
-- [x] Tokens wired (colors, fonts, radius)
-- [ ] components/ui complete and shown on /_design
-- [ ] Public pages match 9.7
+- [x] Tokens wired (colors, fonts, radius) — 2026-11-18
+- [x] components/ui complete and shown on /_design — 2026-11-18
+- [x] Public pages match 9.7 (Header, Footer, Hero, How it works, CTA) — 2026-11-18
 - [ ] Admin pages match 9.7
-- [ ] docs/DESIGN.md up to date
+- [x] docs/DESIGN.md up to date — 2026-11-18
 
 ## Blockers
 (none)
