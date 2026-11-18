@@ -5,6 +5,8 @@ import cookieParser from 'cookie-parser';
 import { env } from './config/env.js';
 import { errorHandler } from './middleware/error.js';
 import { prisma } from './lib/prisma.js';
+import { authRouter } from './modules/auth/routes.js';
+import { usersRouter } from './modules/users/routes.js';
 
 const app = express();
 
@@ -24,9 +26,12 @@ app.use(cookieParser());
 app.use((req, res, next) => {
   if (['POST', 'PUT', 'PATCH', 'DELETE'].includes(req.method)) {
     const customHeader = req.header('X-Requested-With');
-    // Allow browsers direct standard JSON content requests
     const contentType = req.header('Content-Type');
-    if (!customHeader && (!contentType || !contentType.includes('application/json')) && !contentType?.includes('multipart/form-data')) {
+    if (
+      !customHeader &&
+      (!contentType || !contentType.includes('application/json')) &&
+      !contentType?.includes('multipart/form-data')
+    ) {
       res.status(403).json({
         error: {
           code: 'CSRF_BLOCKED',
@@ -49,6 +54,10 @@ app.get('/health', async (_req, res) => {
     res.status(503).json({ status: 'degraded', db: 'down' });
   }
 });
+
+// API routes (§8)
+app.use('/api/v1/auth', authRouter);
+app.use('/api/v1/users', usersRouter);
 
 // 404 handler
 app.use((_req, res) => {

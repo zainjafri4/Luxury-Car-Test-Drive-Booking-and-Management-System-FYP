@@ -1,0 +1,13 @@
+{
+  "1": "devDependencies",
+  "2": "app.ts",
+  "27": "auth/service.ts",
+  "28": "dependencies",
+  "29": "api/package.json",
+  "30": "supertest",
+  "31": "tsx@^4.19.2",
+  "32": "@types/cookie-parser@^1.4.8",
+  "33": "@types/express@^5.0.0",
+  "34": "@types/nodemailer@^6.4.17",
+  "35": "@types/swagger-ui-express@^4.1.7"
+}

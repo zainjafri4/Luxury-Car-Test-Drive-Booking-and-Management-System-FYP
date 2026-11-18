@@ -49,3 +49,4 @@ export async function sendEmail(options: SendMailOptions): Promise<void> {
     logger.error({ err, to: options.to, subject: options.subject }, 'Failed to deliver email');
   }
 }
+

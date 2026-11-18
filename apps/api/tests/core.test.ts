@@ -52,3 +52,4 @@ describe('Error classes & validation middleware', () => {
     expect(err.code).toBe('SLOT_ALREADY_BOOKED');
   });
 });
+

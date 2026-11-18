@@ -1,14 +1,14 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 1 — Database and API core (Completed)
+- Current phase: Phase 2 — Authentication and profile (Completed)
 - Last updated: 2026-11-18
-- Overall: 2/10 phases complete
+- Overall: 3/10 phases complete
 
 ## Phase checklist
 - [x] Phase 0 — Foundations and tracking
 - [x] Phase 1 — Database and API core
-- [ ] Phase 2 — Authentication and profile
+- [x] Phase 2 — Authentication and profile
 - [ ] Phase 3 — Dealerships and vehicles
 - [ ] Phase 4 — Time slots
 - [ ] Phase 5 — Bookings, state machine, notifications
@@ -88,28 +88,22 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-18 — Create/edit forms: vehicles = full page; dealerships/staff = modal; slots = drawer
 - 2026-11-18 — Tailwind v3 (not v4) for Next.js compatibility and ecosystem stability
 - 2026-11-18 — CSRF: custom header check (`X-Requested-With: XMLHttpRequest`) on all state-changing API requests, documented in security checklist
-- 2026-11-18 — graphify: initialized & updated after Phase 1 (355 nodes, 442 edges, 27 communities)
+- 2026-11-18 — graphify: updated after Phase 2 (400 nodes, 575 edges, 36 communities)
 - 2026-11-18 — M0.1 Docker daemon skipped on office laptop due to WSL issues; M1.1 DB migrations command prepared in `apps/api/prisma/migrations/20261118000000_init/migration.sql` to execute once Postgres is started
 
 ---
 
-## Current phase detail — Phase 1
+## Current phase detail — Phase 2
 
 ### Task list
-- [x] Prisma schema defined (User, RefreshToken, Dealership, Vehicle, TimeSlot, Booking, BookingStatusHistory, Notification)
-- [x] Migration SQL created with CHECK (`endsAt > startsAt`) and partial unique index (`booking_slot_active_unique` on `slotId` for PENDING/APPROVED)
-- [x] Prisma client generated
-- [x] Zod environment config (`apps/api/src/config/env.ts`)
-- [x] Core error classes & global error handler with P2002/P2025 mapping
-- [x] Pino logger configured
-- [x] Password hasher & JWT token helpers with SHA-256 hash
-- [x] Mailer with console fallback
-- [x] Auth, role, validation, rateLimit, and upload middleware
-- [x] Idempotent seed script (`apps/api/prisma/seed.ts`) with 3 dealerships & 12 luxury vehicles
-- [x] ERD documentation updated in `docs/ERD.md`
-- [x] Automated tests written and passing in Vitest
-- [x] Graphify knowledge graph updated
-- [x] Commit: phase-1: database and api core
+- [x] Auth schemas (register, login) & users schemas (update profile, change password) with Zod
+- [x] Auth service with bcrypt (cost 12), token hashing, rotation, and token family reuse detection (§10)
+- [x] Auth controller & routes with httpOnly SameSite=Lax cookies, auth rate limiter (10/min)
+- [x] Users service, controller, and protected routes (requireAuth, profile get/update, change password)
+- [x] Mounted `/api/v1/auth` and `/api/v1/users` onto express app
+- [x] Supertest test suite covering registration, validation, duplicate email, login, bad password, deactivated user, unauthenticated profile access (11/11 tests pass)
+- [x] Graphify knowledge graph updated (400 nodes, 575 edges, 36 communities)
+- [x] Commit: phase-2: authentication and profile
 
 ---
 
@@ -154,8 +148,8 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 ## Requirements coverage
 | ID | Implemented in (files) | Tested in | Status |
 |----|------------------------|-----------|--------|
-| FR-01 | | | not started |
-| FR-02 | | | not started |
+| FR-01 | apps/api/src/modules/auth/* | apps/api/tests/auth.test.ts | implemented |
+| FR-02 | apps/api/src/modules/users/* | apps/api/tests/auth.test.ts | implemented |
 | FR-03 | | | not started |
 | FR-04 | | | not started |
 | FR-05 | | | not started |
@@ -177,15 +171,14 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 
 ## Verification log
 - 2026-11-18 — `npm run build -w apps/api` — compiled clean, exit code 0
-- 2026-11-18 — `npm run build -w apps/web` — compiled clean, static pages generated, exit code 0
-- 2026-11-18 — `npm run test -w apps/api` — 4/4 vitest unit tests passed
-- 2026-11-18 — `graphify update .` — 355 nodes, 442 edges, 27 communities
+- 2026-11-18 — `npm run test -w apps/api` — 11/11 tests pass (Supertest auth & core error suite)
+- 2026-11-18 — `graphify update .` — 400 nodes, 575 edges, 36 communities
 
 ## Resume instructions (keep current!)
-- Open manual steps: M0.4, M1.1 (when on Docker-enabled machine: `docker compose up -d; npm run db:migrate; npm run db:seed`)
-- Next exact step: Begin Phase 2 (Authentication and profile)
+- Open manual steps: M0.4, M1.1 (when on Docker-enabled machine), M2.1
+- Next exact step: Begin Phase 3 (Dealerships and vehicles)
 - Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: phase-1: database and api core
+- Last commit: phase-2: authentication and profile
 
 ---
 

@@ -221,3 +221,4 @@ model Notification {
   @@index([userId, readAt])
   @@index([bookingId])
 }
+
