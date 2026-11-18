@@ -90,27 +90,41 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-18 — CSRF: custom header check (`X-Requested-With: XMLHttpRequest`) or JSON content-type on all state-changing API requests, documented in security checklist
 - 2026-11-18 — graphify: updated after Phase 6 (566 nodes, 1011 edges, 41 communities)
 - 2026-11-18 — M0.1 Docker daemon skipped on office laptop due to WSL issues; M1.1 DB migrations command prepared in `apps/api/prisma/migrations/20261118000000_init/migration.sql` to execute once Postgres is started
+- 2026-11-19 — graphify: updated after Phase 7 (635 nodes, 1306 edges, 35 communities)
+- 2026-11-19 — Phase 7: Elevated luxury design tokens with obsidian glassmorphic theme and ambient gold mesh; Next.js 15 production build validated with 14 static/dynamic routes.
 
 ---
 
-## Current phase detail — Phase 6
+## Current phase detail — Phase 7
 
 ### Task list
-- [x] OpenAPI 3.0.3 specification defined (`apps/api/src/docs/openapi.ts`) covering all endpoints
-- [x] Swagger UI mounted at `/api/docs` and JSON spec served at `/api/docs.json`
-- [x] Security checklist (§10) verified:
-  - bcrypt cost 12
-  - Refresh tokens stored hashed (SHA-256) with rotation & family revocation on reuse
-  - Cookies: httpOnly, SameSite=Lax, Secure in production
-  - CSRF check enforced on all mutating HTTP methods
-  - Helmet security headers active
-  - IP Rate limiters (Auth: 10/min, General: 300/min)
-  - Prisma parameterization (zero string concat SQL)
-  - Startup env validation with Zod
-- [x] Human-readable documentation in `docs/API.md` refreshed and finalized
-- [x] Vitest suite covering Swagger UI, docs.json, and security/CSRF enforcement (30/30 tests pass)
-- [x] Graphify knowledge graph updated (566 nodes, 1011 edges, 41 communities)
-- [x] Commit: phase-6: api docs and hardening
+- [x] Design tokens configured in `apps/web/app/globals.css` (obsidian dark, glassmorphic panels, hairline metallic gold borders, WCAG AA contrast)
+- [x] Typography configured: Playfair Display for headings and Inter for body text
+- [x] Reusable luxury component library created in `apps/web/components/ui/*`:
+  - `Button` (primary, secondary, ghost, danger, loading states)
+  - `Input` (floating/stacked labels, gold focus ring, error message)
+  - `Card` (surface background, hairline border, hover elevation)
+  - `StatusBadge` (pulse indicator across 5 booking states)
+  - `Modal` (backdrop blur, ESC key dismiss, accessibility attributes)
+  - `SlotPicker` (horizontal date strip, time slot selection, booked slot disabling)
+  - `VehicleCard` (image container, specification badges, direct booking CTA)
+- [x] Visual design catalog implemented at `/_design` and `/design` for component inspection
+- [x] Brand layout headers and footers with responsive mobile navigation and auth state (`Header.tsx`, `Footer.tsx`)
+- [x] Public & Customer routes implemented according to §9.7:
+  - Landing page (`/`) with editorial hero, key metrics, fleet showcase, process journey, and boutique locations
+  - Vehicle catalog (`/vehicles`) with live search, filters (manufacturer, type, fuel, dealership), sort, and pagination
+  - Vehicle detail (`/vehicles/[id]`) with gallery, technical specifications, features list, and interactive `SlotPicker`
+  - Showrooms directory (`/dealerships`) with hours, phone, address, and fleet counts
+  - Authentication pages (`/login`, `/register`) with client validation, toast feedback, and JWT session handling
+  - Booking flow (`/bookings/new`) with booking review, customer notes, and 409 conflict handling
+  - Customer bookings management (`/bookings`) with partitioned status tabs and 24h cutoff cancellation modal
+  - Customer account management (`/account`) with profile update and password change
+- [x] Client API wrapper (`apps/web/lib/api.ts`) with credentials support, error unwrapping, and custom CSRF header
+- [x] Authentication state provider (`apps/web/lib/auth-context.tsx`) with login, register, logout, and `/me` revalidation
+- [x] Production build clean: `npm run build -w apps/web` passes with 14 routes optimized
+- [x] Design documentation finalized in `docs/DESIGN.md`
+- [x] Graphify knowledge graph updated (635 nodes, 1306 edges, 35 communities)
+- [x] Commit: phase-7: frontend public and customer experience
 
 ---
 

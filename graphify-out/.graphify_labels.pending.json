@@ -1,25 +1,8 @@
 {
-  "0": "web/package.json",
-  "1": "devDependencies",
-  "2": "express-rate-limit",
-  "10": "_design/page.tsx",
-  "14": "app.ts",
-  "21": "BookingsController",
-  "27": "auth/service.ts",
-  "28": "dependencies",
-  "29": "api/package.json",
-  "30": "NotFoundError",
-  "31": "env.ts",
-  "32": "vehicles/routes.ts",
-  "33": "bookings/routes.ts",
-  "34": "notifications/routes.ts",
-  "35": "helmet",
-  "36": "zod@^3.24.1",
-  "37": "swagger-ui-express",
-  "38": "@types/swagger-ui-express@^4.1.7",
-  "39": "tsx@^4.19.2",
-  "40": "@types/jsonwebtoken@^9.0.7",
-  "43": "@types/multer@^1.4.12"
+  "7": "BookingsController",
+  "10": "app.ts",
+  "11": "express",
+  "14": "api/tsconfig.json",
+  "16": "@types/swagger-ui-express@^4.1.7",
+  "20": "api/package.json"
 }
-
-

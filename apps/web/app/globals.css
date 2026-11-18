@@ -3,55 +3,54 @@
 @tailwind utilities;
 
 /* ============================================================
-   ZAIN RESERVE — Design Tokens (§9.5)
-   All color, radius, and motion values live here.
-   Never hardcode hex values in components.
+   AURUM DRIVE — Luxury Design Tokens (§9.5)
+   Elevated luxury: obsidian deep backgrounds with subtle gold
+   mesh gradients, brushed gold metallic borders, glassmorphic sheen.
    ============================================================ */
 
 :root {
-  /* Background */
-  --bg: #0c0c0f;
-  --surface: #161618;
-  --surface-2: #1e1e23;
+  /* Elevated Backgrounds */
+  --bg: #09090a;
+  --surface: #121215;
+  --surface-2: #18181c;
+  --surface-glass: rgba(20, 20, 24, 0.7);
 
-  /* Borders */
-  --border: #2a2a30;
-  --border-strong: #3a3a42;
+  /* Borders: Hairline luxury metallic styling */
+  --border: #222228;
+  --border-strong: #383842;
+  --border-gold: rgba(201, 162, 75, 0.35);
 
-  /* Text */
-  --text: #f5f2ea;
-  --text-muted: #a6a29a;
-  --text-faint: #6f6c66;
+  /* Text & Readability (Contrast > 4.5:1) */
+  --text: #f8f6f0;
+  --text-muted: #b0aba0;
+  --text-faint: #736f66;
 
-  /* Gold accent */
+  /* Gold Palette — Warm Metallic Champagne & Antique Gold */
   --gold: #c9a24b;
   --gold-hover: #d9b866;
-  --gold-soft: #e6d3a3;
-  --on-gold: #0b0b0c;
+  --gold-soft: #f0e2be;
+  --gold-glow: rgba(201, 162, 75, 0.18);
+  --on-gold: #09090a;
 
-  /* Semantic */
+  /* Semantic Feedback */
   --success: #4caf7a;
   --warning: #e0a93b;
   --danger: #e5604f;
   --info: #5b9bd5;
 
-  /* Radius */
+  /* Structural Geometry */
   --radius-input: 8px;
   --radius-card: 14px;
   --radius-modal: 18px;
   --radius-badge: 999px;
 
-  /* Motion */
+  /* Luxury Motion */
   --duration-fast: 150ms;
-  --duration-base: 200ms;
-  --duration-slow: 250ms;
-  --duration-image: 500ms;
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-base: 220ms;
+  --duration-slow: 350ms;
+  --duration-image: 600ms;
+  --ease-luxury: cubic-bezier(0.16, 1, 0.3, 1);
 }
-
-/* ============================================================
-   Base styles
-   ============================================================ */
 
 *,
 *::before,
@@ -61,40 +60,34 @@
 
 html {
   scroll-behavior: smooth;
+  color-scheme: dark;
 }
 
 body {
   background-color: var(--bg);
-  background-image:
-    /* Warm gold bloom from top-center */
-    radial-gradient(ellipse 100% 55% at 50% -10%, rgba(201, 162, 75, 0.11), transparent 65%),
-    /* Warm amber right-bottom vignette */
-    radial-gradient(ellipse 60% 45% at 95% 100%, rgba(180, 120, 30, 0.07), transparent 70%),
-    /* Cool-dark left-mid depth */
-    radial-gradient(ellipse 55% 40% at 5% 50%, rgba(10, 12, 20, 0.5), transparent 65%),
-    /* Subtle noise grain overlay */
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  /* Subtle ambient luxury mesh: warm gold top glow + vignette */
+  background-image: 
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201, 162, 75, 0.08), transparent 70%),
+    radial-gradient(circle at 100% 100%, rgba(201, 162, 75, 0.03), transparent 40%);
   background-attachment: fixed;
-  background-size: auto, auto, auto, 200px 200px;
   color: var(--text);
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 16px;
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-playfair), Georgia, serif;
   line-height: 1.15;
+  letter-spacing: -0.01em;
 }
 
-/* Tabular numbers for stats/tables */
 .tabular-nums {
   font-variant-numeric: tabular-nums;
 }
 
-/* Gold uppercase eyebrow label */
+/* Luxury gold badge/eyebrow typography */
 .eyebrow {
   font-size: 11px;
   font-family: var(--font-inter), system-ui, sans-serif;
@@ -104,21 +97,24 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--gold);
 }
 
-/* Luxury Gold metallic text gradient */
-.text-gold-gradient {
-  background: linear-gradient(135deg, #fcedb4 0%, #c9a24b 50%, #9e792a 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+/* Glassmorphism panel helper */
+.glass-panel {
+  background: var(--surface-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border);
 }
 
-/* Focus ring */
+/* Gold glow accents */
+.gold-glow {
+  box-shadow: 0 0 35px var(--gold-glow);
+}
+
 :focus-visible {
   outline: 2px solid var(--gold-soft);
   outline-offset: 2px;
-  border-radius: 4px;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 6px;
   height: 6px;
@@ -131,18 +127,5 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 999px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--text-faint);
+  background: var(--gold);
 }
-
-/* Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}
-
