@@ -58,3 +58,4 @@ export const removeImageSchema = z
 export type CreateVehicleInput = z.infer<typeof createVehicleSchema>;
 export type UpdateVehicleInput = z.infer<typeof updateVehicleSchema>;
 export type VehicleQueryInput = z.infer<typeof vehicleQuerySchema>;
+

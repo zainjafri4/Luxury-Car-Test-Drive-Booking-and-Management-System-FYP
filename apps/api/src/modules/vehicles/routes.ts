@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import { vehiclesController } from './controller.js';
+import { slotsController } from '../slots/controller.js';
 import { validate } from '../../middleware/validate.js';
 import { requireAuth, requireRole } from '../../middleware/auth.js';
 import { uploadVehicleImages } from '../../middleware/upload.js';
@@ -12,10 +13,11 @@ import {
 
 export const vehiclesRouter = Router();
 
-// Public endpoints (§8.4)
+// Public endpoints (§8.4, §8.5)
 vehiclesRouter.get('/', validate({ query: vehicleQuerySchema }), vehiclesController.list);
 vehiclesRouter.get('/filters', vehiclesController.getFilters);
 vehiclesRouter.get('/:id', vehiclesController.getById);
+vehiclesRouter.get('/:id/slots', slotsController.getVehicleSlots);
 
 // Staff management endpoints (§8.4)
 vehiclesRouter.post(

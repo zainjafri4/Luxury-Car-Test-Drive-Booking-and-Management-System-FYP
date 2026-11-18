@@ -28,3 +28,4 @@ export const dealershipQuerySchema = z
 
 export type CreateDealershipInput = z.infer<typeof createDealershipSchema>;
 export type UpdateDealershipInput = z.infer<typeof updateDealershipSchema>;
+

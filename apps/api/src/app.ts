@@ -10,6 +10,7 @@ import { authRouter } from './modules/auth/routes.js';
 import { usersRouter } from './modules/users/routes.js';
 import { dealershipsRouter } from './modules/dealerships/routes.js';
 import { vehiclesRouter } from './modules/vehicles/routes.js';
+import { slotsRouter } from './modules/slots/routes.js';
 
 const app = express();
 
@@ -67,6 +68,7 @@ app.use('/api/v1/auth', authRouter);
 app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/dealerships', dealershipsRouter);
 app.use('/api/v1/vehicles', vehiclesRouter);
+app.use('/api/v1/slots', slotsRouter);
 
 // 404 handler
 app.use((_req, res) => {

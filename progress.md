@@ -1,16 +1,16 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 3 — Dealerships and vehicles (Completed)
+- Current phase: Phase 4 — Time slots (Completed)
 - Last updated: 2026-11-18
-- Overall: 4/10 phases complete
+- Overall: 5/10 phases complete
 
 ## Phase checklist
 - [x] Phase 0 — Foundations and tracking
 - [x] Phase 1 — Database and API core
 - [x] Phase 2 — Authentication and profile
 - [x] Phase 3 — Dealerships and vehicles
-- [ ] Phase 4 — Time slots
+- [x] Phase 4 — Time slots
 - [ ] Phase 5 — Bookings, state machine, notifications
 - [ ] Phase 6 — API docs and hardening
 - [ ] Phase 7 — Frontend: public + customer
@@ -88,21 +88,26 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-18 — Create/edit forms: vehicles = full page; dealerships/staff = modal; slots = drawer
 - 2026-11-18 — Tailwind v3 (not v4) for Next.js compatibility and ecosystem stability
 - 2026-11-18 — CSRF: custom header check (`X-Requested-With: XMLHttpRequest`) on all state-changing API requests, documented in security checklist
-- 2026-11-18 — graphify: updated after Phase 3 (464 nodes, 723 edges, 39 communities)
+- 2026-11-18 — graphify: updated after Phase 4 (499 nodes, 821 edges, 39 communities)
 - 2026-11-18 — M0.1 Docker daemon skipped on office laptop due to WSL issues; M1.1 DB migrations command prepared in `apps/api/prisma/migrations/20261118000000_init/migration.sql` to execute once Postgres is started
 
 ---
 
-## Current phase detail — Phase 3
+## Current phase detail — Phase 4
 
 ### Task list
-- [x] Dealerships schemas, service, controller, and routes (CRUD + cascade deactivation + activation)
-- [x] Vehicles schemas, service, controller, and routes (filters, search, sort, pagination, metadata, image upload & delete, soft delete & cascade deactivation)
-- [x] Static image upload serving route (`/uploads`) wired in Express
-- [x] Endpoints mounted under `/api/v1/dealerships` and `/api/v1/vehicles`
-- [x] Supertest test suite covering public views, staff guards, filtering, and cascade deactivation rules (17/17 tests pass)
-- [x] Graphify knowledge graph updated (464 nodes, 723 edges, 39 communities)
-- [x] Commit: phase-3: dealerships and vehicles
+- [x] TimeSlot schemas (single slot, bulk generation, filters, ISO 8601 timestamps, endsAt > startsAt validation)
+- [x] TimeSlot service with:
+  - Operating hours validation against dealership times in APP_TIMEZONE
+  - Overlap prevention for active slots per vehicle
+  - Bulk generation reporting skipped slots
+  - Past slots filtered out for public
+  - Immutable slot protection when active booking exists (409 SLOT_HAS_ACTIVE_BOOKING)
+  - Public availability endpoint with `isBooked` flag (`/vehicles/:id/slots`)
+- [x] Slots controller & routes mounted under `/api/v1/slots` and `/api/v1/vehicles/:id/slots`
+- [x] Supertest test suite covering public slot availability, conflict on overlap, operating hours, and active-booking edit lock (21/21 tests pass)
+- [x] Graphify knowledge graph updated (499 nodes, 821 edges, 39 communities)
+- [x] Commit: phase-4: time slots
 
 ---
 
@@ -122,7 +127,7 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 | M2.1 | 2 | Try auth by hand | no | open | |
 | M3.1 | 3 | Review seed vehicles/dealerships | no | open | |
 | M3.2 | 3 | Provide real images (optional) | no | open | |
-| M4.1 | 4 | Confirm timezone | no | open | |
+| M4.1 | 4 | Confirm timezone (default Asia/Karachi) | no | open | |
 | M5.1 | 5 | Optional real email | no | open | |
 | M5.2 | 5 | Run concurrency test | no | open | |
 | M6.1 | 6 | Review Swagger UI | no | open | |
@@ -151,7 +156,7 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 | FR-02 | apps/api/src/modules/users/* | apps/api/tests/auth.test.ts | implemented |
 | FR-03 | apps/api/src/modules/dealerships/*, apps/api/src/modules/vehicles/* | apps/api/tests/vehicles.test.ts | implemented |
 | FR-04 | apps/api/src/modules/vehicles/* | apps/api/tests/vehicles.test.ts | implemented |
-| FR-05 | | | not started |
+| FR-05 | apps/api/src/modules/slots/* | apps/api/tests/slots.test.ts | implemented |
 | FR-06 | | | not started |
 | FR-07 | | | not started |
 | FR-08 | | | not started |
@@ -170,14 +175,14 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 
 ## Verification log
 - 2026-11-18 — `npm run build -w apps/api` — compiled clean, exit code 0
-- 2026-11-18 — `npm run test -w apps/api` — 17/17 tests pass across 3 test suites
-- 2026-11-18 — `graphify update .` — 464 nodes, 723 edges, 39 communities
+- 2026-11-18 — `npm run test -w apps/api` — 21/21 tests pass across 4 test suites
+- 2026-11-18 — `graphify update .` — 499 nodes, 821 edges, 39 communities
 
 ## Resume instructions (keep current!)
-- Open manual steps: M0.4, M1.1 (when on Docker-enabled machine), M2.1, M3.1, M3.2
-- Next exact step: Begin Phase 4 (Time slots)
+- Open manual steps: M0.4, M1.1 (when on Docker-enabled machine), M2.1, M3.1, M3.2, M4.1
+- Next exact step: Begin Phase 5 (Bookings, state machine, notifications)
 - Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: phase-3: dealerships and vehicles
+- Last commit: phase-4: time slots
 
 ---
 

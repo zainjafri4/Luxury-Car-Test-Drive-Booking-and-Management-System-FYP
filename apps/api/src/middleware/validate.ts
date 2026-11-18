@@ -1,11 +1,11 @@
 import type { Request, Response, NextFunction } from 'express';
-import { ZodError, type AnyZodObject } from 'zod';
+import { ZodError, type ZodTypeAny } from 'zod';
 import { BadRequestError } from '../lib/errors.js';
 
 interface RequestValidators {
-  body?: AnyZodObject;
-  query?: AnyZodObject;
-  params?: AnyZodObject;
+  body?: ZodTypeAny;
+  query?: ZodTypeAny;
+  params?: ZodTypeAny;
 }
 
 export const validate = (validators: RequestValidators) => {
@@ -34,4 +34,3 @@ export const validate = (validators: RequestValidators) => {
     }
   };
 };
-
