@@ -53,3 +53,4 @@ adminBookingsRouter.post('/:id/approve', bookingsController.approve);
 adminBookingsRouter.post('/:id/reject', validate({ body: rejectBookingSchema }), bookingsController.reject);
 adminBookingsRouter.post('/:id/reschedule', validate({ body: rescheduleBookingSchema }), bookingsController.reschedule);
 adminBookingsRouter.post('/:id/complete', bookingsController.complete);
+

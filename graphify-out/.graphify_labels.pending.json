@@ -7,18 +7,14 @@
   "28": "dependencies",
   "29": "api/package.json",
   "30": "NotFoundError",
-  "31": "NotFoundError",
+  "31": "app.ts",
   "32": "vehicles/routes.ts",
   "33": "bookings/routes.ts",
   "34": "notifications/routes.ts",
-  "35": "dependencies",
-  "36": "scripts",
-  "37": "@types/express@^5.0.0",
+  "35": "helmet",
+  "36": "zod@^3.24.1",
+  "37": "typescript@^5.7.2",
   "38": "@types/swagger-ui-express@^4.1.7",
-  "39": "pino-pretty@^13.0.0",
   "40": "prisma@^5.22.0",
-  "41": "tsx@^4.19.2",
-  "42": "@types/cookie-parser@^1.4.8",
-  "43": "@types/multer@^1.4.12",
-  "44": "engines"
+  "43": "@types/multer@^1.4.12"
 }

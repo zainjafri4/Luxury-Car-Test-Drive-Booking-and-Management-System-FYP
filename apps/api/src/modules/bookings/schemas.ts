@@ -57,3 +57,4 @@ export type RejectBookingInput = z.infer<typeof rejectBookingSchema>;
 export type RescheduleBookingInput = z.infer<typeof rescheduleBookingSchema>;
 export type CustomerBookingsQueryInput = z.infer<typeof customerBookingsQuerySchema>;
 export type AdminBookingsQueryInput = z.infer<typeof adminBookingsQuerySchema>;
+

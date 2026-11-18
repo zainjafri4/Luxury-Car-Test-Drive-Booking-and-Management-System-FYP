@@ -693,3 +693,4 @@ export class BookingsService {
 }
 
 export const bookingsService = new BookingsService();
+

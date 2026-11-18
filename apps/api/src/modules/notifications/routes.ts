@@ -12,3 +12,4 @@ notificationsRouter.get('/', validate({ query: notificationsQuerySchema }), noti
 notificationsRouter.get('/unread-count', notificationsController.getUnreadCount);
 notificationsRouter.post('/read-all', notificationsController.markAllAsRead);
 notificationsRouter.post('/:id/read', notificationsController.markAsRead);
+

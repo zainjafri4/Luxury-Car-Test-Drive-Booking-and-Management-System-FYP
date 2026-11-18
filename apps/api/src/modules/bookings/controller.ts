@@ -96,3 +96,4 @@ export class BookingsController {
 }
 
 export const bookingsController = new BookingsController();
+

@@ -18,9 +18,9 @@
     "semantic_hash": "778a3b81234792ed2faf1ece164b8c66"
   },
   "apps/api/src/app.ts": {
-    "mtime": 1795023810.675442,
-    "seen": 1795023947.4801145,
-    "ast_hash": "928086872ffb43fbd5cbbdce6b390ce8",
+    "mtime": 1795026221.6786556,
+    "seen": 1795026309.402373,
+    "ast_hash": "b1f1c2f738dfb8cf0eecf182f9ed191d",
     "semantic_hash": ""
   },
   "apps/api/src/config/env.ts": {
@@ -138,10 +138,10 @@
     "semantic_hash": "af4ef632afef7933ccd840d92ab0ea68"
   },
   "docs/API.md": {
-    "mtime": 1795019256.8195326,
-    "seen": 1795020163.2074037,
-    "ast_hash": "bd69c2b374349332c6c7aa85e7d70a7e",
-    "semantic_hash": "bd69c2b374349332c6c7aa85e7d70a7e"
+    "mtime": 1795026254.3515573,
+    "seen": 1795026309.4064395,
+    "ast_hash": "a521d6837400891e96c33c0c4524e4c2",
+    "semantic_hash": ""
   },
   "docs/CODEMAP.md": {
     "mtime": 1795019256.8946161,
@@ -174,9 +174,9 @@
     "semantic_hash": "2ed30424341278b45e67c959b851ff5f"
   },
   "progress.md": {
-    "mtime": 1795023602.7138233,
-    "seen": 1795023947.4868078,
-    "ast_hash": "2b083a6d71c50c73a5dfa56e69fe7dcc",
+    "mtime": 1795024028.846445,
+    "seen": 1795026309.4070458,
+    "ast_hash": "ad5ce4531b021751fd28833c6158e1f8",
     "semantic_hash": ""
   },
   "apps/api/prisma/seed.ts": {
@@ -402,63 +402,75 @@
     "semantic_hash": ""
   },
   "apps/api/src/modules/bookings/controller.ts": {
-    "mtime": 1795023775.5962944,
-    "seen": 1795023947.4815812,
-    "ast_hash": "063969422e72a8dd033cba1c0ae9d128",
+    "mtime": 1795024015.8896892,
+    "seen": 1795026309.4035792,
+    "ast_hash": "bf6134b77b03135ae0d60df487ee1b2a",
     "semantic_hash": ""
   },
   "apps/api/src/modules/bookings/routes.ts": {
-    "mtime": 1795023783.4799218,
-    "seen": 1795023947.4815829,
-    "ast_hash": "621a036519a0ec2559fd52e2bbd4f449",
+    "mtime": 1795024015.946221,
+    "seen": 1795026309.4035814,
+    "ast_hash": "3eea9e40670215d96fc70e7f9d72f838",
     "semantic_hash": ""
   },
   "apps/api/src/modules/bookings/schemas.ts": {
-    "mtime": 1795023692.305181,
-    "seen": 1795023947.4815948,
-    "ast_hash": "978210899e61eb0900fac5acbfb9dd0f",
+    "mtime": 1795024015.9985418,
+    "seen": 1795026309.403583,
+    "ast_hash": "0608d3581788a776e5b1fb0b5ed696c4",
     "semantic_hash": ""
   },
   "apps/api/src/modules/bookings/service.ts": {
-    "mtime": 1795023764.533484,
-    "seen": 1795023947.481597,
-    "ast_hash": "a646aa64af089a47d3927982b1ed5c92",
+    "mtime": 1795024016.1251523,
+    "seen": 1795026309.4035842,
+    "ast_hash": "1846f2f7fcf88fe0f7ccf8a65df08c83",
     "semantic_hash": ""
   },
   "apps/api/src/modules/dashboard/routes.ts": {
-    "mtime": 1795023800.6836975,
-    "seen": 1795023947.4815981,
-    "ast_hash": "e4b1e8dcbb9b05d0f506836d544c2ed7",
+    "mtime": 1795024016.2677262,
+    "seen": 1795026309.403586,
+    "ast_hash": "ea92d5a43dc4024841d2a5be6442386f",
     "semantic_hash": ""
   },
   "apps/api/src/modules/notifications/controller.ts": {
-    "mtime": 1795023719.1584084,
-    "seen": 1795023947.4827847,
-    "ast_hash": "dd20e6301a9865fc4d678e620feaa74b",
+    "mtime": 1795024016.3091204,
+    "seen": 1795026309.4039202,
+    "ast_hash": "e4d6d7980bb82320871cf35c1d0ad21d",
     "semantic_hash": ""
   },
   "apps/api/src/modules/notifications/routes.ts": {
-    "mtime": 1795023727.4791975,
-    "seen": 1795023947.482787,
-    "ast_hash": "c24d8f33ef70598f31b4c3457e83386f",
+    "mtime": 1795024016.4206817,
+    "seen": 1795026309.4039214,
+    "ast_hash": "cd9047ae35c2791e97b848456266bee9",
     "semantic_hash": ""
   },
   "apps/api/src/modules/notifications/schemas.ts": {
-    "mtime": 1795023699.1590643,
-    "seen": 1795023947.4827883,
-    "ast_hash": "a783045c96f00b99db4f2b4d39ccd811",
+    "mtime": 1795024016.4833577,
+    "seen": 1795026309.4039228,
+    "ast_hash": "c91ffcebd19d9b5bbed632f50a3368fe",
     "semantic_hash": ""
   },
   "apps/api/src/modules/notifications/service.ts": {
-    "mtime": 1795023710.999376,
-    "seen": 1795023947.4827893,
-    "ast_hash": "e54a6e7e2507d5279214e3b8ab9af71e",
+    "mtime": 1795024016.545226,
+    "seen": 1795026309.4039237,
+    "ast_hash": "c9bb247354f2f6cafd3a0fc21aa2a060",
     "semantic_hash": ""
   },
   "apps/api/tests/bookings.test.ts": {
-    "mtime": 1795023919.1364987,
-    "seen": 1795023947.4842298,
+    "mtime": 1795024028.7352738,
+    "seen": 1795026309.4049287,
     "ast_hash": "b13b0dbac18425c54586d2148f1a0798",
+    "semantic_hash": ""
+  },
+  "apps/api/src/docs/openapi.ts": {
+    "mtime": 1795024129.817021,
+    "seen": 1795026309.4024525,
+    "ast_hash": "51396bf87bf2c74b03e3100353be761e",
+    "semantic_hash": ""
+  },
+  "apps/api/tests/docs.test.ts": {
+    "mtime": 1795026274.4762094,
+    "seen": 1795026309.4050012,
+    "ast_hash": "7c5c23c53aa238fe33e0c79c5e6a0bdc",
     "semantic_hash": ""
   },
   "package-lock.json": {

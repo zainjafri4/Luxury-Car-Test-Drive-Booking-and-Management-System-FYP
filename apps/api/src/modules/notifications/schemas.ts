@@ -12,3 +12,4 @@ export const notificationsQuerySchema = z
   .strict();
 
 export type NotificationsQueryInput = z.infer<typeof notificationsQuerySchema>;
+

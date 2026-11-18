@@ -18,9 +18,9 @@
     "semantic_hash": "778a3b81234792ed2faf1ece164b8c66"
   },
   "apps/api/src/app.ts": {
-    "mtime": 1795022768.1814845,
-    "seen": 1795023533.6102464,
-    "ast_hash": "1ee0d2f6550ca0c2cde7850466b53209",
+    "mtime": 1795023810.675442,
+    "seen": 1795023947.4801145,
+    "ast_hash": "928086872ffb43fbd5cbbdce6b390ce8",
     "semantic_hash": ""
   },
   "apps/api/src/config/env.ts": {
@@ -174,9 +174,9 @@
     "semantic_hash": "2ed30424341278b45e67c959b851ff5f"
   },
   "progress.md": {
-    "mtime": 1795022620.821681,
-    "seen": 1795023533.6150932,
-    "ast_hash": "8e3c9c7133f5b48c655bf49cf61aa3c6",
+    "mtime": 1795023602.7138233,
+    "seen": 1795023947.4868078,
+    "ast_hash": "2b083a6d71c50c73a5dfa56e69fe7dcc",
     "semantic_hash": ""
   },
   "apps/api/prisma/seed.ts": {
@@ -246,8 +246,8 @@
     "semantic_hash": ""
   },
   "apps/api/src/middleware/validate.ts": {
-    "mtime": 1795022950.5961702,
-    "seen": 1795023533.6112385,
+    "mtime": 1795023602.3773735,
+    "seen": 1795023947.4811318,
     "ast_hash": "07dc23deb335deba8bcab304afc059bb",
     "semantic_hash": ""
   },
@@ -348,8 +348,8 @@
     "semantic_hash": ""
   },
   "apps/api/src/modules/vehicles/routes.ts": {
-    "mtime": 1795022759.7296958,
-    "seen": 1795023533.6119142,
+    "mtime": 1795023602.616027,
+    "seen": 1795023947.4836552,
     "ast_hash": "5c5053f988441cea984aeb889da30de7",
     "semantic_hash": ""
   },
@@ -372,33 +372,93 @@
     "semantic_hash": ""
   },
   "apps/api/src/modules/slots/controller.ts": {
-    "mtime": 1795022745.805765,
-    "seen": 1795023533.611573,
-    "ast_hash": "ef063773a1e2d91b19ea3bd2af246c3b",
+    "mtime": 1795023592.1925883,
+    "seen": 1795023947.482792,
+    "ast_hash": "5e57103b1037bb2c0574f3ccf5e3e1c9",
     "semantic_hash": ""
   },
   "apps/api/src/modules/slots/routes.ts": {
-    "mtime": 1795022752.3537333,
-    "seen": 1795023533.6115744,
-    "ast_hash": "0dcbf297e6229dd930de13ceee333cf5",
+    "mtime": 1795023592.2453036,
+    "seen": 1795023947.4827936,
+    "ast_hash": "5147edc43bc43fde6a7836b87419af78",
     "semantic_hash": ""
   },
   "apps/api/src/modules/slots/schemas.ts": {
-    "mtime": 1795022713.662116,
-    "seen": 1795023533.6115756,
-    "ast_hash": "53f023e5958548d6e3469f5465307688",
+    "mtime": 1795023592.3234682,
+    "seen": 1795023947.4827952,
+    "ast_hash": "472b44889190bc8c1df0c1508c3e1ab1",
     "semantic_hash": ""
   },
   "apps/api/src/modules/slots/service.ts": {
-    "mtime": 1795022736.7096183,
-    "seen": 1795023533.6115768,
-    "ast_hash": "1dd3e48c479c637d49b10a12979d6008",
+    "mtime": 1795023592.3795817,
+    "seen": 1795023947.4827974,
+    "ast_hash": "6d15008072ec8115de2da95f3c88ec51",
     "semantic_hash": ""
   },
   "apps/api/tests/slots.test.ts": {
-    "mtime": 1795023497.3616884,
-    "seen": 1795023533.612167,
-    "ast_hash": "3242d37428fa92f8e87c7d062ac92079",
+    "mtime": 1795023592.4966104,
+    "seen": 1795023947.48437,
+    "ast_hash": "615dae85fa14418627f42022d03650df",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/bookings/controller.ts": {
+    "mtime": 1795023775.5962944,
+    "seen": 1795023947.4815812,
+    "ast_hash": "063969422e72a8dd033cba1c0ae9d128",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/bookings/routes.ts": {
+    "mtime": 1795023783.4799218,
+    "seen": 1795023947.4815829,
+    "ast_hash": "621a036519a0ec2559fd52e2bbd4f449",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/bookings/schemas.ts": {
+    "mtime": 1795023692.305181,
+    "seen": 1795023947.4815948,
+    "ast_hash": "978210899e61eb0900fac5acbfb9dd0f",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/bookings/service.ts": {
+    "mtime": 1795023764.533484,
+    "seen": 1795023947.481597,
+    "ast_hash": "a646aa64af089a47d3927982b1ed5c92",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/dashboard/routes.ts": {
+    "mtime": 1795023800.6836975,
+    "seen": 1795023947.4815981,
+    "ast_hash": "e4b1e8dcbb9b05d0f506836d544c2ed7",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/notifications/controller.ts": {
+    "mtime": 1795023719.1584084,
+    "seen": 1795023947.4827847,
+    "ast_hash": "dd20e6301a9865fc4d678e620feaa74b",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/notifications/routes.ts": {
+    "mtime": 1795023727.4791975,
+    "seen": 1795023947.482787,
+    "ast_hash": "c24d8f33ef70598f31b4c3457e83386f",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/notifications/schemas.ts": {
+    "mtime": 1795023699.1590643,
+    "seen": 1795023947.4827883,
+    "ast_hash": "a783045c96f00b99db4f2b4d39ccd811",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/notifications/service.ts": {
+    "mtime": 1795023710.999376,
+    "seen": 1795023947.4827893,
+    "ast_hash": "e54a6e7e2507d5279214e3b8ab9af71e",
+    "semantic_hash": ""
+  },
+  "apps/api/tests/bookings.test.ts": {
+    "mtime": 1795023919.1364987,
+    "seen": 1795023947.4842298,
+    "ast_hash": "b13b0dbac18425c54586d2148f1a0798",
     "semantic_hash": ""
   },
   "package-lock.json": {

@@ -3,6 +3,7 @@ import express from 'express';
 import helmet from 'helmet';
 import cors from 'cors';
 import cookieParser from 'cookie-parser';
+import swaggerUi from 'swagger-ui-express';
 import { env } from './config/env.js';
 import { errorHandler } from './middleware/error.js';
 import { prisma } from './lib/prisma.js';
@@ -14,6 +15,8 @@ import { slotsRouter } from './modules/slots/routes.js';
 import { bookingsRouter, adminBookingsRouter } from './modules/bookings/routes.js';
 import { notificationsRouter } from './modules/notifications/routes.js';
 import { dashboardRouter } from './modules/dashboard/routes.js';
+import { generalRateLimiter } from './middleware/rateLimit.js';
+import { openapiDoc } from './docs/openapi.js';
 
 const app = express();
 
@@ -28,6 +31,13 @@ app.use(
 app.use(express.json({ limit: '1mb' }));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+
+// General rate limiter on all API endpoints (§10)
+app.use('/api', generalRateLimiter);
+
+// Serve OpenAPI Swagger UI (§8.9)
+app.use('/api/docs', swaggerUi.serve, swaggerUi.setup(openapiDoc));
+app.get('/api/docs.json', (_req, res) => res.json(openapiDoc));
 
 // Serve static vehicle uploads (§2, §8.4)
 const uploadDir = path.resolve(process.cwd(), 'uploads');
@@ -75,7 +85,7 @@ app.use('/api/v1/slots', slotsRouter);
 app.use('/api/v1/bookings', bookingsRouter);
 app.use('/api/v1/admin/bookings', adminBookingsRouter);
 app.use('/api/v1/admin/dashboard', dashboardRouter);
-app.use('/api/v1/admin', dashboardRouter); // provides /admin/customers and /admin/staff
+app.use('/api/v1/admin', dashboardRouter);
 app.use('/api/v1/notifications', notificationsRouter);
 
 // 404 handler
