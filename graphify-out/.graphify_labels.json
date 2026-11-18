@@ -1,9 +1,7 @@
 {
   "0": "app.ts",
   "1": "NotFoundError",
-  "2": "web/package.json",
   "3": "Docker Infrastructure and Database Service",
-  "5": "Monorepo Root Package Configuration",
   "6": "Database Models and Entity Schemas",
   "8": "Shared Domain Enums and Types",
   "9": "API Scripts and Database Workflows",

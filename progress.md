@@ -1,9 +1,9 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 9 — QA, polish, docs, deployment readiness
+- Current phase: Completed (All phases 0 through 9 complete)
 - Last updated: 2026-11-19
-- Overall: 9/10 phases complete
+- Overall: 10/10 phases complete
 
 ## Phase checklist
 - [x] Phase 0 — Foundations and tracking
@@ -15,7 +15,7 @@
 - [x] Phase 6 — API docs and hardening
 - [x] Phase 7 — Frontend: public + customer
 - [x] Phase 8 — Frontend: admin portal
-- [ ] Phase 9 — QA, polish, docs, deployment readiness
+- [x] Phase 9 — QA, polish, docs, deployment readiness
 
 ---
 
@@ -208,10 +208,13 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-19 — `npm run test -w apps/api` — 30/30 tests pass across 6 test suites
 - 2026-11-19 — `npm run build -w apps/web` — compiled clean, 21 routes statically/dynamically generated
 - 2026-11-19 — `graphify update .` — 675 nodes, 1488 edges, 35 communities
+- 2026-11-19 — Phase 9 build verification: `npm run build -w apps/api` (clean), `npm run build -w apps/web` (clean, 21 routes), `npm run test -w apps/api` (30/30 passed)
+- 2026-11-19 — `graphify update .` — 684 nodes, 1498 edges, 42 communities
 
 ## Resume instructions (keep current!)
-- Open manual steps: M0.4, M1.1, M2.1, M3.1, M3.2, M4.1, M5.1, M5.2, M6.1, M7.1, M7.2, M8.1
-- Next exact step: Begin Phase 9 (QA, polish, docs, deployment readiness)
+- Project fully completed across all 10 planned phases (Phase 0 to Phase 9).
+- Repository ready for final tag `v1.0.0` and demo.
 - Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: phase-8: frontend admin portal
+- Run development servers: `npm run dev`
+- Run tests: `npm run test -w apps/api` (backend), `npx playwright test --config=apps/web/playwright.config.ts` (E2E)
 

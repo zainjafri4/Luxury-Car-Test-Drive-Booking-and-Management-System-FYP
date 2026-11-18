@@ -1,9 +1,18 @@
 {
+  "2": "dependencies",
   "4": "AuthController",
-  "7": "jsonwebtoken",
+  "5": "bookings/routes.ts",
+  "7": "devDependencies",
   "10": "app.ts",
   "11": "dealerships/service.ts",
   "14": "api/tsconfig.json",
   "16": "pino-pretty@^13.0.0",
-  "20": "api/package.json"
+  "20": "api/package.json",
+  "22": "web/package.json",
+  "31": "@playwright/test",
+  "32": "scripts",
+  "33": "@types/cookie-parser@^1.4.8",
+  "39": "@types/supertest@^6.0.2",
+  "40": "typescript@^5.7.2",
+  "41": "@types/react-dom@^19.0.0"
 }
