@@ -1,7 +1,5 @@
 {
   "0": "Web Frontend Dependencies",
-  "1": "API Dev Dependencies and Tooling",
-  "2": "API Runtime Dependencies",
   "3": "Docker Infrastructure and Database Service",
   "4": "Root TypeScript Base Configuration",
   "5": "Monorepo Root Package Configuration",

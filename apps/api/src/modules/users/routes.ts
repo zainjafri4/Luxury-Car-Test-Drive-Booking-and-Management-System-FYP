@@ -11,3 +11,4 @@ usersRouter.use(requireAuth);
 usersRouter.get('/me', usersController.getMe);
 usersRouter.patch('/me', validate({ body: updateProfileSchema }), usersController.updateMe);
 usersRouter.post('/me/change-password', validate({ body: changePasswordSchema }), usersController.changePassword);
+

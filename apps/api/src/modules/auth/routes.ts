@@ -12,3 +12,4 @@ authRouter.post('/login', authRateLimiter, validate({ body: loginSchema }), auth
 authRouter.post('/refresh', authController.refresh);
 authRouter.post('/logout', authController.logout);
 authRouter.get('/me', requireAuth, authController.me);
+

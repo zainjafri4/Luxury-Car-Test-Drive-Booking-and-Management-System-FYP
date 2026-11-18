@@ -1,15 +1,15 @@
 # progress.md
 
 ## Status
-- Current phase: Phase 2 — Authentication and profile (Completed)
+- Current phase: Phase 3 — Dealerships and vehicles (Completed)
 - Last updated: 2026-11-18
-- Overall: 3/10 phases complete
+- Overall: 4/10 phases complete
 
 ## Phase checklist
 - [x] Phase 0 — Foundations and tracking
 - [x] Phase 1 — Database and API core
 - [x] Phase 2 — Authentication and profile
-- [ ] Phase 3 — Dealerships and vehicles
+- [x] Phase 3 — Dealerships and vehicles
 - [ ] Phase 4 — Time slots
 - [ ] Phase 5 — Bookings, state machine, notifications
 - [ ] Phase 6 — API docs and hardening
@@ -88,22 +88,21 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 - 2026-11-18 — Create/edit forms: vehicles = full page; dealerships/staff = modal; slots = drawer
 - 2026-11-18 — Tailwind v3 (not v4) for Next.js compatibility and ecosystem stability
 - 2026-11-18 — CSRF: custom header check (`X-Requested-With: XMLHttpRequest`) on all state-changing API requests, documented in security checklist
-- 2026-11-18 — graphify: updated after Phase 2 (400 nodes, 575 edges, 36 communities)
+- 2026-11-18 — graphify: updated after Phase 3 (464 nodes, 723 edges, 39 communities)
 - 2026-11-18 — M0.1 Docker daemon skipped on office laptop due to WSL issues; M1.1 DB migrations command prepared in `apps/api/prisma/migrations/20261118000000_init/migration.sql` to execute once Postgres is started
 
 ---
 
-## Current phase detail — Phase 2
+## Current phase detail — Phase 3
 
 ### Task list
-- [x] Auth schemas (register, login) & users schemas (update profile, change password) with Zod
-- [x] Auth service with bcrypt (cost 12), token hashing, rotation, and token family reuse detection (§10)
-- [x] Auth controller & routes with httpOnly SameSite=Lax cookies, auth rate limiter (10/min)
-- [x] Users service, controller, and protected routes (requireAuth, profile get/update, change password)
-- [x] Mounted `/api/v1/auth` and `/api/v1/users` onto express app
-- [x] Supertest test suite covering registration, validation, duplicate email, login, bad password, deactivated user, unauthenticated profile access (11/11 tests pass)
-- [x] Graphify knowledge graph updated (400 nodes, 575 edges, 36 communities)
-- [x] Commit: phase-2: authentication and profile
+- [x] Dealerships schemas, service, controller, and routes (CRUD + cascade deactivation + activation)
+- [x] Vehicles schemas, service, controller, and routes (filters, search, sort, pagination, metadata, image upload & delete, soft delete & cascade deactivation)
+- [x] Static image upload serving route (`/uploads`) wired in Express
+- [x] Endpoints mounted under `/api/v1/dealerships` and `/api/v1/vehicles`
+- [x] Supertest test suite covering public views, staff guards, filtering, and cascade deactivation rules (17/17 tests pass)
+- [x] Graphify knowledge graph updated (464 nodes, 723 edges, 39 communities)
+- [x] Commit: phase-3: dealerships and vehicles
 
 ---
 
@@ -150,8 +149,8 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 |----|------------------------|-----------|--------|
 | FR-01 | apps/api/src/modules/auth/* | apps/api/tests/auth.test.ts | implemented |
 | FR-02 | apps/api/src/modules/users/* | apps/api/tests/auth.test.ts | implemented |
-| FR-03 | | | not started |
-| FR-04 | | | not started |
+| FR-03 | apps/api/src/modules/dealerships/*, apps/api/src/modules/vehicles/* | apps/api/tests/vehicles.test.ts | implemented |
+| FR-04 | apps/api/src/modules/vehicles/* | apps/api/tests/vehicles.test.ts | implemented |
 | FR-05 | | | not started |
 | FR-06 | | | not started |
 | FR-07 | | | not started |
@@ -171,14 +170,14 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 
 ## Verification log
 - 2026-11-18 — `npm run build -w apps/api` — compiled clean, exit code 0
-- 2026-11-18 — `npm run test -w apps/api` — 11/11 tests pass (Supertest auth & core error suite)
-- 2026-11-18 — `graphify update .` — 400 nodes, 575 edges, 36 communities
+- 2026-11-18 — `npm run test -w apps/api` — 17/17 tests pass across 3 test suites
+- 2026-11-18 — `graphify update .` — 464 nodes, 723 edges, 39 communities
 
 ## Resume instructions (keep current!)
-- Open manual steps: M0.4, M1.1 (when on Docker-enabled machine), M2.1
-- Next exact step: Begin Phase 3 (Dealerships and vehicles)
+- Open manual steps: M0.4, M1.1 (when on Docker-enabled machine), M2.1, M3.1, M3.2
+- Next exact step: Begin Phase 4 (Time slots)
 - Commands to restore environment: `npm install && docker compose up -d && npm run db:migrate && npm run db:seed`
-- Last commit: phase-2: authentication and profile
+- Last commit: phase-3: dealerships and vehicles
 
 ---
 
