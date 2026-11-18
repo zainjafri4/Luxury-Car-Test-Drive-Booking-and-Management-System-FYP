@@ -63,7 +63,7 @@ describe('Dealerships and Vehicles Endpoints (FR-03, FR-04)', () => {
       vi.mocked(prisma.dealership.findMany).mockResolvedValue([
         {
           id: 'dealership-1',
-          name: 'Aurum Drive Central',
+          name: 'Zain Reserve Central',
           city: 'Karachi',
           address: 'Main Shahrah-e-Faisal',
           phone: '+922134567890',
@@ -112,7 +112,7 @@ describe('Dealerships and Vehicles Endpoints (FR-03, FR-04)', () => {
       vi.mocked(prisma.dealership.findUnique).mockResolvedValue(null);
       vi.mocked(prisma.dealership.create).mockResolvedValue({
         id: 'new-dealership-id',
-        name: 'Aurum Drive Islamabad',
+        name: 'Zain Reserve Islamabad',
         city: 'Islamabad',
       } as any);
 
@@ -121,7 +121,7 @@ describe('Dealerships and Vehicles Endpoints (FR-03, FR-04)', () => {
         .set('Authorization', `Bearer ${staffToken}`)
         .set('X-Requested-With', 'XMLHttpRequest')
         .send({
-          name: 'Aurum Drive Islamabad',
+          name: 'Zain Reserve Islamabad',
           address: 'Diplomatic Enclave Road',
           city: 'Islamabad',
           phone: '+92512345678',
@@ -130,7 +130,7 @@ describe('Dealerships and Vehicles Endpoints (FR-03, FR-04)', () => {
         });
 
       expect(res.status).toBe(201);
-      expect(res.body.data.name).toBe('Aurum Drive Islamabad');
+      expect(res.body.data.name).toBe('Zain Reserve Islamabad');
     });
   });
 
@@ -148,7 +148,7 @@ describe('Dealerships and Vehicles Endpoints (FR-03, FR-04)', () => {
           priceUsd: '140000',
           isActive: true,
           isAvailable: true,
-          dealership: { id: 'd-1', name: 'Aurum Drive Central', city: 'Karachi' },
+          dealership: { id: 'd-1', name: 'Zain Reserve Central', city: 'Karachi' },
         },
       ] as any);
 

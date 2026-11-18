@@ -1,4 +1,23 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { z } from 'zod';
+
+// Load .env automatically from current directory or upward to repo root
+let currentDir = process.cwd();
+for (let i = 0; i < 4; i++) {
+  const envPath = path.join(currentDir, '.env');
+  if (fs.existsSync(envPath)) {
+    try {
+      process.loadEnvFile(envPath);
+    } catch {
+      // Ignored - validation below will report any missing keys
+    }
+    break;
+  }
+  const parent = path.dirname(currentDir);
+  if (parent === currentDir) break;
+  currentDir = parent;
+}
 
 const envSchema = z.object({
   NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),

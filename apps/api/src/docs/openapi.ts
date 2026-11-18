@@ -1,10 +1,10 @@
 export const openapiDoc = {
   openapi: '3.0.3',
   info: {
-    title: 'Aurum Drive API',
+    title: 'Zain Reserve API',
     version: '1.0.0',
     description:
-      'REST API for Aurum Drive luxury automobile test-drive booking and management system.',
+      'REST API for Zain Reserve luxury automobile test-drive booking and management system.',
   },
   servers: [
     {

@@ -1,5 +1,5 @@
 import { PrismaClient, Role, FuelType, VehicleType, BookingStatus, SlotStatus } from '@prisma/client';
-import bcrypt from 'bcrypt';
+import bcrypt from 'bcryptjs';
 
 const prisma = new PrismaClient();
 
@@ -41,31 +41,31 @@ async function main() {
 
   const dealershipsData = [
     {
-      name: 'Aurum Drive Central',
+      name: 'Zain Reserve Central',
       city: 'Karachi',
       address: 'Plot 14-C, Main Shahrah-e-Faisal, PECHS Block 6',
       phone: '+922134567890',
-      email: 'karachi@aurumdrive.example',
+      email: 'karachi@zainreserve.example',
       openingTime: '09:00',
       closingTime: '18:00',
       description: 'Flagship coastal showroom with private VIP lounge and enclosed delivery bays.',
     },
     {
-      name: 'Aurum Drive Lahore Heritage',
+      name: 'Zain Reserve Lahore Heritage',
       city: 'Lahore',
       address: '22-A, Gulberg III, MM Alam Road',
       phone: '+924235678901',
-      email: 'lahore@aurumdrive.example',
+      email: 'lahore@zainreserve.example',
       openingTime: '09:00',
       closingTime: '19:00',
       description: 'Exclusive pavilion featuring bespoke customisation studios and dedicated test-track.',
     },
     {
-      name: 'Aurum Drive Capital',
+      name: 'Zain Reserve Capital',
       city: 'Islamabad',
       address: 'Diplomatic Enclave Road, Sector G-5/2',
       phone: '+92512345678',
-      email: 'islamabad@aurumdrive.example',
+      email: 'islamabad@zainreserve.example',
       openingTime: '09:00',
       closingTime: '18:00',
       description: 'Executive boutique dealership catering to diplomats and luxury connoisseurs.',

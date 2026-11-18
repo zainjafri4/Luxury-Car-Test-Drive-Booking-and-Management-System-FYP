@@ -147,8 +147,8 @@ export class BookingsService {
       setTimeout(() => {
         sendEmail({
           to: customer.email,
-          subject: 'Test-Drive Request Received - Aurum Drive',
-          text: `Hello ${customer.fullName},\n\nYour test-drive request for the ${slot.vehicle.manufacturer} ${slot.vehicle.model} has been received. Our team will review your slot shortly.\n\nAurum Drive Concierge`,
+          subject: 'Test-Drive Request Received - Zain Reserve',
+          text: `Hello ${customer.fullName},\n\nYour test-drive request for the ${slot.vehicle.manufacturer} ${slot.vehicle.model} has been received. Our team will review your slot shortly.\n\nZain Reserve Concierge`,
         });
       }, 0);
 
@@ -319,8 +319,8 @@ export class BookingsService {
     setTimeout(() => {
       sendEmail({
         to: booking.customer.email,
-        subject: 'Booking Cancelled - Aurum Drive',
-        text: `Hello ${booking.customer.fullName},\n\nYour test-drive booking has been cancelled.\nReason: ${reason}\n\nAurum Drive Team`,
+        subject: 'Booking Cancelled - Zain Reserve',
+        text: `Hello ${booking.customer.fullName},\n\nYour test-drive booking has been cancelled.\nReason: ${reason}\n\nZain Reserve Team`,
       });
     }, 0);
 
@@ -384,8 +384,8 @@ export class BookingsService {
     setTimeout(() => {
       sendEmail({
         to: booking.customer.email,
-        subject: 'Your Test Drive is Confirmed! - Aurum Drive',
-        text: `Hello ${booking.customer.fullName},\n\nGreat news! Your test-drive request has been approved.\nSlot: ${booking.slot.startsAt.toISOString()}\n\nAurum Drive Concierge`,
+        subject: 'Your Test Drive is Confirmed! - Zain Reserve',
+        text: `Hello ${booking.customer.fullName},\n\nGreat news! Your test-drive request has been approved.\nSlot: ${booking.slot.startsAt.toISOString()}\n\nZain Reserve Concierge`,
       });
     }, 0);
 
@@ -450,8 +450,8 @@ export class BookingsService {
     setTimeout(() => {
       sendEmail({
         to: booking.customer.email,
-        subject: 'Test-Drive Request Update - Aurum Drive',
-        text: `Hello ${booking.customer.fullName},\n\nUnfortunately, we were unable to approve your booking request.\nReason: ${input.staffNote}\n\nAurum Drive Concierge`,
+        subject: 'Test-Drive Request Update - Zain Reserve',
+        text: `Hello ${booking.customer.fullName},\n\nUnfortunately, we were unable to approve your booking request.\nReason: ${input.staffNote}\n\nZain Reserve Concierge`,
       });
     }, 0);
 

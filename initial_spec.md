@@ -393,7 +393,7 @@ Loading skeletons, empty states with guidance, error states with retry, optimist
 
 ### 9.5 UI DESIGN SYSTEM — foundations (NEW)
 
-**Brand (default, human may rename in M0.6):** name **"Aurum Drive"**, tagline *"Experience it before you own it."* Wordmark = text only (Playfair Display, letter-spacing 0.12em, uppercase, gold), no logo image required. Keep the brand name in one constant (`apps/web/lib/brand.ts`) so it can be renamed in one place.
+**Brand (default, human may rename in M0.6):** name **"Zain Reserve"**, tagline *"Experience it before you own it."* Wordmark = text only (Playfair Display, letter-spacing 0.12em, uppercase, gold), no logo image required. Keep the brand name in one constant (`apps/web/lib/brand.ts`) so it can be renamed in one place.
 
 **Design direction:** dark, quiet, premium — like a luxury automaker's website. Lots of negative space, large editorial imagery, thin hairline borders instead of heavy boxes, gold used sparingly for emphasis and primary actions only. **Dark theme only** (no light mode toggle).
 
@@ -583,7 +583,7 @@ Tasks: create `progress.md` (template in section 13) FIRST; create `.gitignore` 
 - **M0.3 [BLOCKING] Set git identity (once):** `git config --global user.name "<Your Name>"` and `git config --global user.email "<you@example.com>"`.
 - **M0.4 [NON-BLOCKING] Create a private GitHub repo and push:** create an empty private repo on github.com (no README/gitignore), then `git remote add origin <url>` and `git push -u origin main`. Do this after the Phase 0 commit; push after every phase as backup.
 - **M0.5 [NON-BLOCKING] Install graphify** per its documentation (agent states exact command it uses) or confirm the `docs/CODEMAP.md` fallback is acceptable.
-- **M0.6 [NON-BLOCKING] Decide brand name:** keep "Aurum Drive" or tell the agent a new name (changed in `lib/brand.ts`).
+- **M0.6 [NON-BLOCKING] Decide brand name:** keep "Zain Reserve" or tell the agent a new name (changed in `lib/brand.ts`).
 - **M0.7 [NON-BLOCKING] Install VS Code extensions:** ESLint, Prettier, Tailwind CSS IntelliSense, Prisma (agent adds `.vscode/extensions.json`).
 
 Exit criteria: `npm install` OK; `docker compose up -d` DB healthy; `npm run dev` serves web on 3000 and API `/health` on 4000; lint passes; `git status` shows no ignored/secret file tracked (`git ls-files | grep -E "\.env$|node_modules"` returns nothing); first commit made; graphify initialized (or CODEMAP started); M0.1–M0.3 confirmed.

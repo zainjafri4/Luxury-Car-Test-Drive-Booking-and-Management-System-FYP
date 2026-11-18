@@ -1,4 +1,4 @@
-# API Reference — Aurum Drive
+# API Reference — Zain Reserve
 
 Base URL: `http://localhost:4000/api/v1`  
 Interactive Swagger UI: `http://localhost:4000/api/docs`  

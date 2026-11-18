@@ -39,7 +39,7 @@ export default function DesignReviewPage() {
     <div className="max-w-container mx-auto px-6 py-12 space-y-12">
       <div>
         <p className="eyebrow">Design System Verification</p>
-        <h1 className="text-4xl font-serif text-gold mt-1">Aurum Drive Component Catalog</h1>
+        <h1 className="text-4xl font-serif text-gold mt-1">Zain Reserve Component Catalog</h1>
         <p className="text-text-muted mt-2">
           Dark, quiet, premium foundations (§9.5, §9.6). All tokens wired into CSS variables.
         </p>
@@ -84,7 +84,7 @@ export default function DesignReviewPage() {
       <Card className="p-6 space-y-4">
         <h2 className="text-xl font-serif text-text border-b border-border pb-2">Form Controls</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-xl">
-          <Input label="Email Address" placeholder="client@aurumdrive.com" />
+          <Input label="Email Address" placeholder="client@zainreserve.com" />
           <Input label="Full Name" placeholder="Zain Jafri" />
           <Input label="With Error" value="invalid-input" error="Please enter a valid email format" readOnly />
         </div>
@@ -112,7 +112,7 @@ export default function DesignReviewPage() {
         </Button>
         <Modal isOpen={modalOpen} onClose={() => setModalOpen(false)} title="Confirm Reservation">
           <p className="text-sm text-text-muted mb-6">
-            Review your appointment terms. Aurum Drive concierge ensures a personalized luxury walkthrough.
+            Review your appointment terms. Zain Reserve concierge ensures a personalized luxury walkthrough.
           </p>
           <div className="flex justify-end gap-3">
             <Button variant="ghost" onClick={() => setModalOpen(false)}>

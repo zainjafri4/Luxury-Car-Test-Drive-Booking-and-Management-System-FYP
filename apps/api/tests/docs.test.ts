@@ -17,7 +17,7 @@ describe('API Documentation & Security Hardening (Phase 6)', () => {
     const res = await request(app).get('/api/docs.json');
     expect(res.status).toBe(200);
     expect(res.body.openapi).toBe('3.0.3');
-    expect(res.body.info.title).toContain('Aurum Drive');
+    expect(res.body.info.title).toContain('Zain Reserve');
   });
 
   it('serves Swagger UI HTML at /api/docs/', async () => {

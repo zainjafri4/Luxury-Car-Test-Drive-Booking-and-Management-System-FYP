@@ -1,5 +1,5 @@
 export const brand = {
-  name: 'Aurum Drive',
+  name: 'Zain Reserve',
   tagline: 'Experience it before you own it.',
   wordmarkFont: 'Playfair Display',
 } as const;

@@ -27,7 +27,7 @@ export async function sendEmail(options: SendMailOptions): Promise<void> {
   try {
     if (transporter) {
       await transporter.sendMail({
-        from: env.MAIL_FROM || 'noreply@aurumdrive.example',
+        from: env.MAIL_FROM || 'noreply@zainreserve.example',
         to: options.to,
         subject: options.subject,
         text: options.text,

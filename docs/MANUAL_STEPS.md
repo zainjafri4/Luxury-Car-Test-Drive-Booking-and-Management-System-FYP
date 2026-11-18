@@ -115,9 +115,9 @@ Graphify will be used from Phase 1 onwards to maintain a knowledge graph of the 
 
 ### M0.6 [NON-BLOCKING] Decide Brand Name
 
-Default brand name: **Aurum Drive**. If you want a different name, reply with it. The agent will update `apps/web/lib/brand.ts`.
+Brand chosen: **Zain Reserve** (favicon monogram Z). Updated across codebase.
 
-**Reply:** `done M0.6` (keep Aurum Drive) or `brand: <Your Name>`
+**Status:** done (2026-11-19)
 
 ---
 

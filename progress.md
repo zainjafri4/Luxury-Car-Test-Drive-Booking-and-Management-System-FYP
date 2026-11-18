@@ -123,9 +123,9 @@ Files: Playwright tests, Dockerfiles, final README, docs/ERD.md final, docs/DESI
 | M0.3 | 0 | Set git identity | yes | done | 2026-11-18 |
 | M0.4 | 0 | Create private GitHub repo and push | no | open | |
 | M0.5 | 0 | Install graphify | no | done | 2026-11-18 |
-| M0.6 | 0 | Decide brand name | no | open | |
+| M0.6 | 0 | Decide brand name | no | done (Zain Reserve) | 2026-11-19 |
 | M0.7 | 0 | Install VS Code extensions | no | open | |
-| M1.1 | 1 | Start DB and apply migrations | yes | deferred (office laptop) | |
+| M1.1 | 1 | Start DB and apply migrations | yes | done (Postgres 16 native) | 2026-11-19 |
 | M1.2 | 1 | Inspect data visually | no | open | |
 | M2.1 | 2 | Try auth by hand | no | open | |
 | M3.1 | 3 | Review seed vehicles/dealerships | no | open | |

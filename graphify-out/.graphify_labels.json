@@ -1,23 +1,2 @@
-{
-  "3": "Docker Infrastructure and Database Service",
-  "4": "Root TypeScript Base Configuration",
-  "5": "Monorepo Root Package Configuration",
-  "6": "Database Models and Entity Schemas",
-  "7": "Web App TypeScript Configuration",
-  "8": "Shared Domain Enums and Types",
-  "9": "API Scripts and Database Workflows",
-  "11": "API TypeScript Configuration",
-  "12": "Shared Package Manifest",
-  "13": "Web ESLint Rules and Configuration",
-  "15": "API ESLint Configuration",
-  "16": "Project Specifications and Progress Tracking",
-  "17": "System Architecture and Error Handling",
-  "18": "Security, Auth Conventions and Secrets",
-  "19": "Luxury UI Design System and Tokens",
-  "20": "API Environment Configuration",
-  "22": "Tailwind CSS Configuration",
-  "23": "Manual Steps and Setup Guide",
-  "24": "PostCSS Build Configuration",
-  "25": "User Profile API Endpoints",
-  "26": "Seed Accounts Specification"
-}
+{"0": "app.ts", "1": "NotFoundError", "2": "web/package.json", "3": "Docker Infrastructure and Database Service", "4": "Root TypeScript Base Configuration", "5": "Monorepo Root Package Configuration", "6": "Database Models and Entity Schemas", "7": "Web App TypeScript Configuration", "8": "Shared Domain Enums and Types", "9": "API Scripts and Database Workflows", "10": "postgres", "11": "API TypeScript Configuration", "12": "Shared Package Manifest", "13": "Web ESLint Rules and Configuration", "14": "scripts", "15": "API ESLint Configuration", "16": "Project Specifications and Progress Tracking", "17": "System Architecture and Error Handling", "18": "Security, Auth Conventions and Secrets", "19": "Luxury UI Design System and Tokens", "20": "API Environment Configuration", "21": "@prisma/client", "22": "Tailwind CSS Configuration", "23": "Manual Steps and Setup Guide", "24": "PostCSS Build Configuration", "25": "User Profile API Endpoints", "26": "Seed Accounts Specification", "27": "Zain Reserve Dark Luxury UI Design System", "28": "multer", "29": "pino-pretty@^13.0.0", "30": "swagger-ui-express", "31": "prisma@^5.22.0", "32": "tsx@^4.19.2", "33": "@types/cors@^2.8.17", "34": "Human Owner Manual Steps Protocol", "35": "postcss.config.js", "36": "tailwind.config.ts", "37": "User Profile API Endpoints", "38": "Seed Accounts Specification"}
+
