@@ -6,23 +6,23 @@ import { Shield, Clock, Compass, Award } from 'lucide-react';
 
 export default function HomePage() {
   return (
-    <div className="space-y-32 pb-24 overflow-hidden">
+    <div className="space-y-0 pb-24 overflow-hidden">
       {/* Editorial Luxury Hero Section */}
       <section className="relative min-h-[90vh] flex items-center justify-center text-center px-6">
         {/* Ambient atmospheric lighting */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(201,162,75,0.12)_0%,_transparent_65%)] pointer-events-none" />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-gold/5 rounded-full blur-3xl pointer-events-none" />
 
-        <div className="relative max-w-4xl space-y-8 z-10">
+        <div className="relative max-w-5xl space-y-8 z-10">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-gold/30 bg-surface-2/60 backdrop-blur-md shadow-sm">
             <span className="h-1.5 w-1.5 rounded-full bg-gold animate-ping" />
             <span className="eyebrow text-[10px] tracking-[0.22em]">
-              THE PINNACLE OF AUTOMOTIVE EXCELLENCE
+              TEST DRIVE REQUESTS, REIMAGINED
             </span>
           </div>
 
-          <h1 className="font-serif text-5xl sm:text-7xl md:text-8xl font-bold tracking-tight text-text leading-[1.08]">
-            Drive the <br className="hidden sm:inline" />
+          <h1 className="font-serif text-5xl sm:text-7xl md:text-[5.5rem] font-bold tracking-tight text-text leading-[1.08]">
+            Drive the{' '}
             <span className="italic font-normal bg-gradient-to-r from-gold via-gold-soft to-gold bg-clip-text text-transparent">
               extraordinary
             </span>
@@ -68,11 +68,15 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section divider */}
+      <div className="section-divider mx-6 my-16" />
+
       {/* Featured Fleet Preview Grid */}
-      <section className="max-w-container mx-auto px-6 space-y-12">
+      <section className="max-w-container mx-auto px-6 space-y-12 py-8">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 border-b border-border pb-6">
           <div className="space-y-1.5">
             <p className="eyebrow">Curated Selection</p>
+            <div className="gold-rule mt-2 mb-3" />
             <h2 className="font-serif text-3xl md:text-4xl text-text">Signature Masterpieces</h2>
           </div>
           <Link href="/vehicles" className="text-sm font-medium text-gold hover:text-gold-hover transition-colors">
@@ -109,7 +113,7 @@ export default function HomePage() {
           ].map((car, idx) => (
             <Card
               key={idx}
-              className="group overflow-hidden rounded-card border-border hover:border-gold/50 transition-all duration-base bg-surface-2/40 backdrop-blur-sm hover:shadow-xl hover:shadow-gold/5"
+              className="luxury-card group overflow-hidden rounded-card hover:border-gold/50 transition-all duration-base backdrop-blur-sm hover:shadow-xl hover:shadow-gold/5"
             >
               {/* Graphic Placeholder Canvas with metallic aesthetic */}
               <div className="relative h-56 bg-gradient-to-br from-surface-2 via-surface to-bg p-6 flex flex-col justify-between border-b border-border/80 overflow-hidden">
@@ -152,10 +156,15 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Philosophy / How it Works */}
-      <section className="max-w-container mx-auto px-6 space-y-16">
+      {/* Section divider */}
+      <div className="section-divider mx-6 my-16" />
+
+      {/* Philosophy / How it Works — warm section */}
+      <section className="section-warm py-24 px-6">
+        <div className="max-w-container mx-auto space-y-16">
         <div className="text-center max-w-2xl mx-auto space-y-3">
-          <p className="eyebrow">The Aurum Standard</p>
+          <p className="eyebrow">The Zain Reserve Standard</p>
+          <div className="gold-rule mt-2 mb-4" />
           <h2 className="font-serif text-3xl md:text-5xl text-text">A Seamless Journey to the Wheel</h2>
           <p className="text-text-muted text-sm leading-relaxed">
             Eliminating dealership friction. Centralized booking, authenticated reservations, zero waiting.
@@ -187,12 +196,17 @@ export default function HomePage() {
             </p>
           </div>
         </div>
+        </div>
       </section>
 
+      {/* Section divider */}
+      <div className="section-divider mx-6 my-16" />
+
       {/* Salons Overview Section */}
-      <section className="max-w-container mx-auto px-6 space-y-8">
+      <section className="max-w-container mx-auto px-6 space-y-8 py-8">
         <div className="space-y-2">
           <p className="eyebrow">Presence</p>
+          <div className="gold-rule mt-2 mb-3" />
           <h2 className="font-serif text-3xl md:text-4xl text-text">Boutique Locations</h2>
         </div>
 
@@ -230,8 +244,11 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Section divider */}
+      <div className="section-divider mx-6 my-16" />
+
       {/* Final Action Band */}
-      <section className="max-w-container mx-auto px-6">
+      <section className="max-w-container mx-auto px-6 pb-8">
         <div className="relative rounded-card p-12 md:p-16 text-center space-y-6 border border-gold/40 bg-gradient-to-b from-surface-2 to-surface shadow-2xl overflow-hidden">
           <div className="absolute top-0 right-0 w-96 h-96 bg-gold/10 rounded-full blur-3xl pointer-events-none" />
           <h2 className="font-serif text-3xl sm:text-4xl md:text-5xl text-text font-bold">

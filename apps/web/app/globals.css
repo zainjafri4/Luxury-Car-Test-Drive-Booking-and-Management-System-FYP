@@ -3,34 +3,35 @@
 @tailwind utilities;
 
 /* ============================================================
-   AURUM DRIVE — Luxury Design Tokens (§9.5)
-   Elevated luxury: obsidian deep backgrounds with subtle gold
-   mesh gradients, brushed gold metallic borders, glassmorphic sheen.
+   ZAIN RESERVE — Luxury Design Tokens (§9.5)
+   Rich dark luxury: warm obsidian, real depth through layered
+   gradients, genuine texture grain, section warmth variation.
    ============================================================ */
 
 :root {
-  /* Elevated Backgrounds */
-  --bg: #09090a;
-  --surface: #121215;
-  --surface-2: #18181c;
-  --surface-glass: rgba(20, 20, 24, 0.7);
+  /* Rich Dark Backgrounds — not flat, layered warmth */
+  --bg: #0a0906;           /* Warm near-black with brown undertone */
+  --surface: #131109;       /* Deep espresso walnut */
+  --surface-2: #1c1a10;     /* Elevated warm dark */
+  --surface-glass: rgba(18, 15, 8, 0.75);
 
-  /* Borders: Hairline luxury metallic styling */
-  --border: #222228;
-  --border-strong: #383842;
-  --border-gold: rgba(201, 162, 75, 0.35);
+  /* Borders: Hairline luxury metallic */
+  --border: #2a2618;
+  --border-strong: #403c28;
+  --border-gold: rgba(201, 162, 75, 0.4);
 
-  /* Text & Readability (Contrast > 4.5:1) */
-  --text: #f8f6f0;
-  --text-muted: #b0aba0;
-  --text-faint: #736f66;
+  /* Text & Readability (WCAG AA > 4.5:1) */
+  --text: #f5f0e8;
+  --text-muted: #b5aa98;
+  --text-faint: #6e6758;
 
-  /* Gold Palette — Warm Metallic Champagne & Antique Gold */
+  /* Gold Palette — Warm Antique Champagne */
   --gold: #c9a24b;
-  --gold-hover: #d9b866;
-  --gold-soft: #f0e2be;
-  --gold-glow: rgba(201, 162, 75, 0.18);
-  --on-gold: #09090a;
+  --gold-hover: #dbb85e;
+  --gold-soft: #f2e4c0;
+  --gold-glow: rgba(201, 162, 75, 0.22);
+  --gold-dim: rgba(201, 162, 75, 0.08);
+  --on-gold: #0a0906;
 
   /* Semantic Feedback */
   --success: #4caf7a;
@@ -65,11 +66,20 @@ html {
 
 body {
   background-color: var(--bg);
-  /* Subtle ambient luxury mesh: warm gold top glow + vignette */
-  background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(201, 162, 75, 0.08), transparent 70%),
-    radial-gradient(circle at 100% 100%, rgba(201, 162, 75, 0.03), transparent 40%);
+  /*
+    Rich layered background:
+    1. Warm gold bloom from top-center (cinematic key light)
+    2. Deep amber right-bottom vignette (depth)
+    3. Cool-dark left-mid (counter shadow)
+    4. SVG grain texture overlay (film-like tactility)
+  */
+  background-image:
+    radial-gradient(ellipse 110% 60% at 50% -5%, rgba(201, 162, 75, 0.14) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 50% at 95% 100%, rgba(160, 100, 20, 0.08) 0%, transparent 65%),
+    radial-gradient(ellipse 50% 60% at 5% 60%, rgba(5, 4, 2, 0.6) 0%, transparent 65%),
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.68' numOctaves='4' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.045'/%3E%3C/svg%3E");
   background-attachment: fixed;
+  background-size: auto, auto, auto, 300px 300px;
   color: var(--text);
   font-family: var(--font-inter), system-ui, sans-serif;
   font-size: 16px;
@@ -87,17 +97,46 @@ h1, h2, h3, h4, h5, h6 {
   font-variant-numeric: tabular-nums;
 }
 
-/* Luxury gold badge/eyebrow typography */
+/* Gold eyebrow label */
 .eyebrow {
   font-size: 11px;
   font-family: var(--font-inter), system-ui, sans-serif;
   font-weight: 600;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--gold);
 }
 
-/* Glassmorphism panel helper */
+/* Thin horizontal gold ornamental rule (placed between sections) */
+.gold-rule {
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 0 auto;
+}
+
+/* Full-width gold divider line */
+.section-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--border-gold) 30%, var(--gold) 50%, var(--border-gold) 70%, transparent 100%);
+  opacity: 0.6;
+}
+
+/* Section tonal variation — alternating section warmth */
+.section-warm {
+  background: linear-gradient(180deg, rgba(26, 20, 8, 0.6) 0%, rgba(15, 12, 5, 0.3) 100%);
+  position: relative;
+}
+.section-warm::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(201, 162, 75, 0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Glassmorphism panel */
 .glass-panel {
   background: var(--surface-glass);
   backdrop-filter: blur(16px);
@@ -105,9 +144,34 @@ h1, h2, h3, h4, h5, h6 {
   border: 1px solid var(--border);
 }
 
-/* Gold glow accents */
+/* Gold metallic text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #fce7a8 0%, #c9a24b 45%, #a07828 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Gold atmospheric glow */
 .gold-glow {
-  box-shadow: 0 0 35px var(--gold-glow);
+  box-shadow: 0 0 40px var(--gold-glow);
+}
+
+/* Card with richer surface */
+.luxury-card {
+  background: linear-gradient(145deg, var(--surface) 0%, var(--surface-2) 100%);
+  border: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+.luxury-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 162, 75, 0.3), transparent);
 }
 
 :focus-visible {

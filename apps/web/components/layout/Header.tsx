@@ -12,8 +12,16 @@ export const Header: React.FC = () => {
   return (
     <header className="sticky top-0 z-40 w-full border-b border-white/[0.07] bg-[#0b0b0c]/80 backdrop-blur-xl shadow-[0_4px_20px_rgba(0,0,0,0.5)] transition-colors">
       <div className="max-w-container mx-auto px-6 h-20 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-2">
-          <span className="font-serif text-2xl font-bold tracking-widest text-gold-gradient uppercase">
+        <Link href="/" className="flex items-center gap-2 group">
+          <span
+            className="font-serif text-xl font-bold uppercase tracking-[0.18em] text-gold-gradient"
+            style={{
+              background: 'linear-gradient(135deg, #fce7a8 0%, #c9a24b 45%, #a07828 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
             {brand.name}
           </span>
         </Link>
