@@ -18,9 +18,9 @@
     "semantic_hash": "778a3b81234792ed2faf1ece164b8c66"
   },
   "apps/api/src/app.ts": {
-    "mtime": 1795022254.706309,
-    "seen": 1795022520.6813436,
-    "ast_hash": "4895b13f2312240a4772c02557e61e0a",
+    "mtime": 1795022768.1814845,
+    "seen": 1795023533.6102464,
+    "ast_hash": "1ee0d2f6550ca0c2cde7850466b53209",
     "semantic_hash": ""
   },
   "apps/api/src/config/env.ts": {
@@ -174,9 +174,9 @@
     "semantic_hash": "2ed30424341278b45e67c959b851ff5f"
   },
   "progress.md": {
-    "mtime": 1795021846.1146524,
-    "seen": 1795022520.69675,
-    "ast_hash": "7fb8370c261f97732cab9bcc7b821fb8",
+    "mtime": 1795022620.821681,
+    "seen": 1795023533.6150932,
+    "ast_hash": "8e3c9c7133f5b48c655bf49cf61aa3c6",
     "semantic_hash": ""
   },
   "apps/api/prisma/seed.ts": {
@@ -246,9 +246,9 @@
     "semantic_hash": ""
   },
   "apps/api/src/middleware/validate.ts": {
-    "mtime": 1795021299.8912945,
-    "seen": 1795021782.3964024,
-    "ast_hash": "e8b00fdfe8d71ce2c4e343eb5d4636be",
+    "mtime": 1795022950.5961702,
+    "seen": 1795023533.6112385,
+    "ast_hash": "07dc23deb335deba8bcab304afc059bb",
     "semantic_hash": ""
   },
   "apps/api/tests/core.test.ts": {
@@ -318,57 +318,87 @@
     "semantic_hash": ""
   },
   "apps/api/src/modules/dealerships/controller.ts": {
-    "mtime": 1795022274.4634585,
-    "seen": 1795022520.6866426,
+    "mtime": 1795022620.3868258,
+    "seen": 1795023533.6115663,
     "ast_hash": "f6a92942c644f0155ef6d62176cd99dc",
     "semantic_hash": ""
   },
   "apps/api/src/modules/dealerships/routes.ts": {
-    "mtime": 1795022204.716818,
-    "seen": 1795022520.686648,
+    "mtime": 1795022620.425358,
+    "seen": 1795023533.6115682,
     "ast_hash": "74a1a3762ab6c75373cebae856f3f735",
     "semantic_hash": ""
   },
   "apps/api/src/modules/dealerships/schemas.ts": {
-    "mtime": 1795022171.8819983,
-    "seen": 1795022520.6866531,
-    "ast_hash": "2dc92545609d15b07ae4b18d74415d2b",
+    "mtime": 1795022617.8329098,
+    "seen": 1795023533.61157,
+    "ast_hash": "1cb2f03e040717562220da013abb3ad7",
     "semantic_hash": ""
   },
   "apps/api/src/modules/dealerships/service.ts": {
-    "mtime": 1795022298.6944928,
-    "seen": 1795022520.6866586,
+    "mtime": 1795022620.465449,
+    "seen": 1795023533.6115716,
     "ast_hash": "3ee07b8e7280b2e4e9ce2500e8cba5f3",
     "semantic_hash": ""
   },
   "apps/api/src/modules/vehicles/controller.ts": {
-    "mtime": 1795022286.2074509,
-    "seen": 1795022520.686686,
+    "mtime": 1795022620.5803604,
+    "seen": 1795023533.6119127,
     "ast_hash": "bf61ddcf37fe7c77930b4c4bf591d88a",
     "semantic_hash": ""
   },
   "apps/api/src/modules/vehicles/routes.ts": {
-    "mtime": 1795022246.8181252,
-    "seen": 1795022520.6866899,
-    "ast_hash": "189a11e917566621e24cb15ad969508b",
+    "mtime": 1795022759.7296958,
+    "seen": 1795023533.6119142,
+    "ast_hash": "5c5053f988441cea984aeb889da30de7",
     "semantic_hash": ""
   },
   "apps/api/src/modules/vehicles/schemas.ts": {
-    "mtime": 1795022213.8568735,
-    "seen": 1795022520.686695,
-    "ast_hash": "fe0cf52de8892f7ea5c8c1b8bb6d7250",
+    "mtime": 1795022618.0922568,
+    "seen": 1795023533.6119156,
+    "ast_hash": "cedab8cde4fe35887f1e8522a2e45a0c",
     "semantic_hash": ""
   },
   "apps/api/src/modules/vehicles/service.ts": {
-    "mtime": 1795022315.9484913,
-    "seen": 1795022520.6866975,
+    "mtime": 1795022620.660285,
+    "seen": 1795023533.611917,
     "ast_hash": "3f2586a1724e50b417b96f9853f55b05",
     "semantic_hash": ""
   },
   "apps/api/tests/vehicles.test.ts": {
-    "mtime": 1795022494.9708073,
-    "seen": 1795022520.6872246,
-    "ast_hash": "1f5a84595940bca9998e72ff40959fa4",
+    "mtime": 1795022618.238721,
+    "seen": 1795023533.6121688,
+    "ast_hash": "f30a8944457b8bc37adabdf9c922915f",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/slots/controller.ts": {
+    "mtime": 1795022745.805765,
+    "seen": 1795023533.611573,
+    "ast_hash": "ef063773a1e2d91b19ea3bd2af246c3b",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/slots/routes.ts": {
+    "mtime": 1795022752.3537333,
+    "seen": 1795023533.6115744,
+    "ast_hash": "0dcbf297e6229dd930de13ceee333cf5",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/slots/schemas.ts": {
+    "mtime": 1795022713.662116,
+    "seen": 1795023533.6115756,
+    "ast_hash": "53f023e5958548d6e3469f5465307688",
+    "semantic_hash": ""
+  },
+  "apps/api/src/modules/slots/service.ts": {
+    "mtime": 1795022736.7096183,
+    "seen": 1795023533.6115768,
+    "ast_hash": "1dd3e48c479c637d49b10a12979d6008",
+    "semantic_hash": ""
+  },
+  "apps/api/tests/slots.test.ts": {
+    "mtime": 1795023497.3616884,
+    "seen": 1795023533.612167,
+    "ast_hash": "3242d37428fa92f8e87c7d062ac92079",
     "semantic_hash": ""
   },
   "package-lock.json": {

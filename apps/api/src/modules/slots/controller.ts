@@ -76,3 +76,4 @@ export class SlotsController {
 }
 
 export const slotsController = new SlotsController();
+

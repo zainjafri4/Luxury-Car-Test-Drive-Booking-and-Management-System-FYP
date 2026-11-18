@@ -11,6 +11,9 @@ import { usersRouter } from './modules/users/routes.js';
 import { dealershipsRouter } from './modules/dealerships/routes.js';
 import { vehiclesRouter } from './modules/vehicles/routes.js';
 import { slotsRouter } from './modules/slots/routes.js';
+import { bookingsRouter, adminBookingsRouter } from './modules/bookings/routes.js';
+import { notificationsRouter } from './modules/notifications/routes.js';
+import { dashboardRouter } from './modules/dashboard/routes.js';
 
 const app = express();
 
@@ -69,6 +72,11 @@ app.use('/api/v1/users', usersRouter);
 app.use('/api/v1/dealerships', dealershipsRouter);
 app.use('/api/v1/vehicles', vehiclesRouter);
 app.use('/api/v1/slots', slotsRouter);
+app.use('/api/v1/bookings', bookingsRouter);
+app.use('/api/v1/admin/bookings', adminBookingsRouter);
+app.use('/api/v1/admin/dashboard', dashboardRouter);
+app.use('/api/v1/admin', dashboardRouter); // provides /admin/customers and /admin/staff
+app.use('/api/v1/notifications', notificationsRouter);
 
 // 404 handler
 app.use((_req, res) => {

@@ -59,3 +59,4 @@ export type CreateSlotInput = z.infer<typeof createSlotSchema>;
 export type UpdateSlotInput = z.infer<typeof updateSlotSchema>;
 export type BulkGenerateSlotsInput = z.infer<typeof bulkGenerateSlotsSchema>;
 export type SlotQueryInput = z.infer<typeof slotQuerySchema>;
+

@@ -18,3 +18,4 @@ slotsRouter.post('/bulk', requireAuth, requireRole('STAFF'), validate({ body: bu
 slotsRouter.patch('/:id', requireAuth, requireRole('STAFF'), validate({ body: updateSlotSchema }), slotsController.update);
 slotsRouter.post('/:id/deactivate', requireAuth, requireRole('STAFF'), slotsController.deactivate);
 slotsRouter.post('/:id/activate', requireAuth, requireRole('STAFF'), slotsController.activate);
+

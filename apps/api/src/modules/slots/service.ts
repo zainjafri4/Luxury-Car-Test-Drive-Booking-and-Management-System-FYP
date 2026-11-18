@@ -404,3 +404,4 @@ export class SlotsService {
 }
 
 export const slotsService = new SlotsService();
+
